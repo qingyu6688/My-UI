@@ -1,0 +1,177 @@
+.my-select {
+  display: inline-flex;
+  width: 100%;
+  position: relative;
+}
+
+.my-select__trigger {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 32px 4px 11px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  cursor: pointer;
+  outline: 0;
+  transition:
+    border-color var(--my-transition-duration),
+    box-shadow var(--my-transition-duration);
+}
+
+.my-select__trigger:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-select__trigger.is-focused {
+  border-color: var(--my-color-primary);
+  box-shadow: 0 0 0 3px var(--my-color-primary-light-7);
+}
+
+.my-select--small .my-select__trigger {
+  min-height: 28px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-select--large .my-select__trigger {
+  min-height: 40px;
+  font-size: var(--my-font-size-large);
+}
+
+.my-select.is-disabled .my-select__trigger {
+  background: var(--my-fill-color-light);
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-select__placeholder {
+  color: var(--my-text-color-secondary);
+}
+
+.my-select__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-select__query {
+  flex: 1;
+  min-width: 60px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.my-select__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  border-radius: var(--my-radius-small);
+  background: var(--my-color-primary-light-7);
+  color: var(--my-text-color-primary);
+  font-size: var(--my-font-size-small);
+  line-height: 20px;
+}
+
+.my-select__tag-close {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.my-select__action {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-select__arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--my-text-color-secondary);
+  font-size: 12px;
+  transition: transform var(--my-transition-duration);
+}
+
+.my-select__arrow.is-reverse {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.my-select__dropdown {
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+  padding: 4px 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.my-select__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.my-select__option {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 32px;
+  font-size: var(--my-font-size-base);
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-select__option:hover,
+.my-select__option.is-hovered {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-select__option.is-selected {
+  color: var(--my-color-primary-active);
+  font-weight: 600;
+  background: var(--my-color-primary-light-9);
+}
+
+.my-select__option.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.my-select__empty {
+  padding: 12px;
+  text-align: center;
+  color: var(--my-text-color-secondary);
+  font-size: var(--my-font-size-small);
+}

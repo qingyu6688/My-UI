@@ -1,0 +1,290 @@
+.my-table {
+  position: relative;
+  width: 100%;
+  background: var(--my-bg-color);
+  border-radius: var(--my-radius-base);
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+}
+
+.my-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.my-table__cell {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--my-border-color-light);
+  vertical-align: middle;
+}
+
+.my-table--small .my-table__cell {
+  padding: 6px 10px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-table--large .my-table__cell {
+  padding: 14px 16px;
+  font-size: var(--my-font-size-large);
+}
+
+.my-table thead .my-table__cell {
+  background: var(--my-bg-color-soft);
+  color: var(--my-text-color-primary);
+  font-weight: 600;
+  user-select: none;
+}
+
+.my-table__cell.is-center {
+  text-align: center;
+}
+
+.my-table__cell.is-right {
+  text-align: right;
+}
+
+.my-table__cell--selection {
+  width: 48px;
+  text-align: center;
+}
+
+.my-table.is-bordered table,
+.my-table.is-bordered .my-table__cell {
+  border: 1px solid var(--my-border-color-light);
+}
+
+.my-table.is-striped tbody tr:nth-child(odd) {
+  background: var(--my-fill-color-light);
+}
+
+.my-table__row {
+  transition: background var(--my-transition-duration);
+}
+
+.my-table__row:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-table__row.is-selected {
+  background: var(--my-color-primary-light-7);
+}
+
+.my-table__empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--my-text-color-secondary);
+}
+
+.my-table__cell.is-sortable {
+  cursor: pointer;
+}
+
+.my-table__sort {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 4px;
+  vertical-align: middle;
+  line-height: 0.6;
+}
+
+.my-table__sort-arrow {
+  font-size: 9px;
+  color: var(--my-text-color-secondary);
+  opacity: 0.5;
+}
+
+.my-table__cell.is-sort-asc .my-table__sort-arrow--up,
+.my-table__cell.is-sort-desc .my-table__sort-arrow--down {
+  color: var(--my-color-primary-active);
+  opacity: 1;
+}
+
+.my-table__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.my-table__spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--my-color-primary);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: my-table-spin 0.8s linear infinite;
+}
+
+@keyframes my-table-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- 表头内容与筛选 ---------- */
+.my-table__head-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.my-table__filter-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--my-radius-small);
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--my-transition-duration), background var(--my-transition-duration);
+}
+
+.my-table__filter-trigger:hover {
+  background: var(--my-color-primary-light-9);
+  color: var(--my-color-primary-active);
+}
+
+.my-table__filter-trigger.is-active {
+  color: var(--my-color-primary);
+}
+
+.my-table__filter-panel {
+  min-width: 140px;
+  padding: 4px 0;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-table__filter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.my-table__filter-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: var(--my-font-size-base);
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-table__filter-option:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-table__filter-option.is-active {
+  color: var(--my-color-primary-active);
+}
+
+.my-table__filter-check {
+  font-size: 13px;
+}
+
+.my-table__filter-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px 4px;
+  border-top: 1px solid var(--my-border-color-light);
+}
+
+.my-table__filter-btn {
+  flex: 1;
+  height: 26px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-small);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-small);
+  cursor: pointer;
+}
+
+.my-table__filter-btn:hover {
+  border-color: var(--my-color-primary);
+  color: var(--my-color-primary-active);
+}
+
+.my-table__filter-btn.is-primary {
+  background: var(--my-color-primary);
+  border-color: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}
+
+/* ---------- 固定列 ---------- */
+.my-table.has-fixed-left,
+.my-table.has-fixed-right {
+  overflow-x: auto;
+}
+
+.my-table__cell.is-fixed-left,
+.my-table__cell.is-fixed-right {
+  background: var(--my-bg-color);
+}
+
+.my-table thead .my-table__cell.is-fixed-left,
+.my-table thead .my-table__cell.is-fixed-right {
+  background: var(--my-bg-color-soft);
+}
+
+.my-table.is-striped tbody tr:nth-child(odd) .my-table__cell.is-fixed-left,
+.my-table.is-striped tbody tr:nth-child(odd) .my-table__cell.is-fixed-right {
+  background: var(--my-fill-color-light);
+}
+
+.my-table__row:hover .my-table__cell.is-fixed-left,
+.my-table__row:hover .my-table__cell.is-fixed-right {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-table__row.is-selected .my-table__cell.is-fixed-left,
+.my-table__row.is-selected .my-table__cell.is-fixed-right {
+  background: var(--my-color-primary-light-7);
+}
+
+.my-table__cell.is-fixed-left-last::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -1px;
+  width: 6px;
+  transform: translateX(100%);
+  box-shadow: inset 6px 0 6px -6px rgba(38, 51, 43, 0.15);
+  pointer-events: none;
+}
+
+.my-table__cell.is-fixed-right-first::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -1px;
+  width: 6px;
+  transform: translateX(-100%);
+  box-shadow: inset -6px 0 6px -6px rgba(38, 51, 43, 0.15);
+  pointer-events: none;
+}
+
+.my-table__cell.is-fixed-left,
+.my-table__cell.is-fixed-right {
+  position: sticky;
+}

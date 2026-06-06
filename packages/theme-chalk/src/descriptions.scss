@@ -1,0 +1,55 @@
+.my-descriptions__title {
+  margin-bottom: 12px;
+  font-size: var(--my-font-size-large);
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-descriptions__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.my-descriptions__label {
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.my-descriptions__content {
+  color: var(--my-text-color-regular);
+}
+
+.my-descriptions:not(.is-bordered) .my-descriptions__label {
+  padding: 8px 12px 8px 0;
+}
+
+.my-descriptions:not(.is-bordered) .my-descriptions__content {
+  padding: 8px 24px 8px 0;
+}
+
+.my-descriptions.is-bordered .my-descriptions__label,
+.my-descriptions.is-bordered .my-descriptions__content {
+  padding: 10px 12px;
+  border: 1px solid var(--my-border-color-light);
+}
+
+.my-descriptions.is-bordered .my-descriptions__label {
+  background: var(--my-bg-color-soft);
+}
+
+.my-descriptions--small .my-descriptions__label,
+.my-descriptions--small .my-descriptions__content {
+  font-size: var(--my-font-size-small);
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.my-descriptions--large .my-descriptions__label,
+.my-descriptions--large .my-descriptions__content {
+  font-size: var(--my-font-size-large);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

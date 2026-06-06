@@ -1,22 +1,29 @@
 # Button 按钮
 
-用于触发操作。
+触发页面操作，支持类型、尺寸、朴素、圆角、文本、图标和加载状态。
 
 ## 基础用法
 
-<my-button>默认按钮</my-button>
-<my-button type="primary">主要按钮</my-button>
-<my-button type="primary" plain>朴素按钮</my-button>
-
 ```vue
 <template>
-  <my-button>默认按钮</my-button>
-  <my-button type="primary">主要按钮</my-button>
-  <my-button type="primary" plain>朴素按钮</my-button>
+  <my-button>Button</my-button>
 </template>
 ```
 
+## 引入方式
+
+```ts
+import { MyButton } from '@qingyu6688/my-ui'
+```
+
+## 设计说明
+
+- 分类：基础组件。
+- 样式会跟随 My UI 主题变量变化。
+- 复杂交互需要同时关注默认、悬停、聚焦、禁用和错误状态。
+- 后续会继续补齐 Props、Events、Slots 和 Exposes 表格。
+
 ## API
 
-详见 [API 文档](/api)。
+通用导出与主题 API 见 [API 文档](/api)。
 

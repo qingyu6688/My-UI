@@ -1,0 +1,33 @@
+.my-popover__trigger {
+  display: inline-block;
+}
+
+.my-popover {
+  min-width: 150px;
+  max-width: 320px;
+  padding: 12px 14px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+  font-size: var(--my-font-size-base);
+  color: var(--my-text-color-regular);
+  line-height: 1.5;
+}
+
+.my-popover__title {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-popover-fade-enter-active,
+.my-popover-fade-leave-active {
+  transition: opacity 0.18s, transform 0.18s;
+}
+
+.my-popover-fade-enter-from,
+.my-popover-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}

@@ -1,0 +1,44 @@
+.my-divider--horizontal {
+  position: relative;
+  margin: 16px 0;
+  border-top: 1px solid var(--my-border-color-light);
+}
+
+.my-divider--horizontal.has-content {
+  display: flex;
+  align-items: center;
+  border-top: 0;
+}
+
+.my-divider--horizontal.has-content::before,
+.my-divider--horizontal.has-content::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--my-border-color-light);
+  border-top-style: inherit;
+}
+
+.my-divider--content-left.has-content::before {
+  flex: 0 0 24px;
+}
+
+.my-divider--content-right.has-content::after {
+  flex: 0 0 24px;
+}
+
+.my-divider__content {
+  padding: 0 12px;
+  color: var(--my-text-color-secondary);
+  font-size: var(--my-font-size-small);
+  background: var(--my-bg-color);
+  white-space: nowrap;
+}
+
+.my-divider--vertical {
+  display: inline-block;
+  width: 0;
+  height: 1em;
+  margin: 0 8px;
+  vertical-align: middle;
+  border-left: 1px solid var(--my-border-color-light);
+}

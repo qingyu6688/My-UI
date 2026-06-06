@@ -1,0 +1,145 @@
+.my-message-box__wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(38, 51, 43, 0.45);
+  z-index: 2040;
+}
+
+.my-message-box {
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  background: var(--my-bg-color);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+  overflow: hidden;
+}
+
+.my-message-box.is-center {
+  text-align: center;
+}
+
+.my-message-box__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 8px;
+}
+
+.my-message-box__title {
+  font-size: var(--my-font-size-large);
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-message-box__close {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.my-message-box__close:hover {
+  color: var(--my-color-primary-active);
+}
+
+.my-message-box__body {
+  padding: 8px 20px 16px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  line-height: 1.6;
+}
+
+.my-message-box__message {
+  margin: 0;
+}
+
+.my-message-box__input {
+  margin-top: 12px;
+}
+
+.my-message-box__input input {
+  width: 100%;
+  height: 32px;
+  padding: 0 11px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.my-message-box__input input:focus {
+  border-color: var(--my-color-primary);
+  box-shadow: 0 0 0 3px var(--my-color-primary-light-7);
+}
+
+.my-message-box__input input.is-error {
+  border-color: var(--my-color-danger);
+}
+
+.my-message-box__error {
+  margin: 4px 0 0;
+  color: var(--my-color-danger);
+  font-size: var(--my-font-size-small);
+}
+
+.my-message-box__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 20px 20px;
+}
+
+.my-message-box.is-center .my-message-box__footer {
+  justify-content: center;
+}
+
+.my-message-box__btn {
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color var(--my-transition-duration),
+    border-color var(--my-transition-duration),
+    background var(--my-transition-duration);
+}
+
+.my-message-box__btn:hover {
+  border-color: var(--my-color-primary);
+  color: var(--my-color-primary-active);
+}
+
+.my-message-box__btn.is-primary {
+  background: var(--my-color-primary);
+  border-color: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}
+
+.my-message-box__btn.is-primary:hover {
+  background: var(--my-color-primary-hover);
+  border-color: var(--my-color-primary-hover);
+  color: var(--my-text-color-primary);
+}
+
+.my-message-box-fade-enter-active,
+.my-message-box-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.my-message-box-fade-enter-from,
+.my-message-box-fade-leave-to {
+  opacity: 0;
+}

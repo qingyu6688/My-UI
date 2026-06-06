@@ -1,0 +1,72 @@
+.my-form--label-top .my-form-item {
+  display: block;
+}
+
+.my-form--label-top .my-form-item__label {
+  display: block;
+  margin-bottom: 6px;
+  text-align: left;
+  width: auto !important;
+}
+
+.my-form-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.my-form-item--label-left .my-form-item__label {
+  text-align: left;
+}
+
+.my-form-item--label-right .my-form-item__label {
+  text-align: right;
+}
+
+.my-form-item__label {
+  flex-shrink: 0;
+  width: 88px;
+  padding-right: 12px;
+  padding-top: 6px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  line-height: 20px;
+}
+
+.my-form-item__required {
+  margin-right: 4px;
+  color: var(--my-color-danger);
+}
+
+.my-form-item__content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.my-form-item__error {
+  margin-top: 4px;
+  color: var(--my-color-danger);
+  font-size: var(--my-font-size-small);
+  line-height: 1.4;
+}
+
+.my-form-item.is-error .my-input,
+.my-form-item.is-error .my-input-number,
+.my-form-item.is-error .my-select__trigger {
+  border-color: var(--my-color-danger);
+}
+
+.my-form-item.is-error .my-input.is-focused,
+.my-form-item.is-error .my-input-number:focus-within,
+.my-form-item.is-error .my-select__trigger.is-focused {
+  box-shadow: 0 0 0 3px rgba(217, 137, 127, 0.18);
+}
+
+.my-form--small .my-form-item {
+  margin-bottom: 12px;
+}
+
+.my-form--large .my-form-item {
+  margin-bottom: 24px;
+}

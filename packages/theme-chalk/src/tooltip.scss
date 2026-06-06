@@ -1,0 +1,95 @@
+.my-tooltip__trigger {
+  display: inline-block;
+}
+
+.my-tooltip {
+  padding: 6px 10px;
+  border-radius: var(--my-radius-base);
+  font-size: var(--my-font-size-small);
+  line-height: 1.4;
+  max-width: 240px;
+  box-shadow: var(--my-shadow-light);
+  pointer-events: auto;
+}
+
+.my-tooltip--dark {
+  background: var(--my-text-color-primary);
+  color: var(--my-bg-color);
+}
+
+.my-tooltip--light {
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  border: 1px solid var(--my-border-color-light);
+}
+
+.my-tooltip__arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  border: inherit;
+  transform: rotate(45deg);
+  box-shadow: none;
+}
+
+.my-tooltip--top .my-tooltip__arrow,
+.my-tooltip--top-start .my-tooltip__arrow,
+.my-tooltip--top-end .my-tooltip__arrow {
+  bottom: -4px;
+  border-top: 0;
+  border-left: 0;
+}
+
+.my-tooltip--bottom .my-tooltip__arrow,
+.my-tooltip--bottom-start .my-tooltip__arrow,
+.my-tooltip--bottom-end .my-tooltip__arrow {
+  top: -4px;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.my-tooltip--left .my-tooltip__arrow,
+.my-tooltip--left-start .my-tooltip__arrow,
+.my-tooltip--left-end .my-tooltip__arrow {
+  right: -4px;
+}
+
+.my-tooltip--right .my-tooltip__arrow,
+.my-tooltip--right-start .my-tooltip__arrow,
+.my-tooltip--right-end .my-tooltip__arrow {
+  left: -4px;
+}
+
+.my-tooltip--top .my-tooltip__arrow,
+.my-tooltip--bottom .my-tooltip__arrow {
+  left: 50%;
+  margin-left: -4px;
+}
+
+.my-tooltip--top-start .my-tooltip__arrow,
+.my-tooltip--bottom-start .my-tooltip__arrow {
+  left: 12px;
+}
+
+.my-tooltip--top-end .my-tooltip__arrow,
+.my-tooltip--bottom-end .my-tooltip__arrow {
+  right: 12px;
+}
+
+.my-tooltip--left .my-tooltip__arrow,
+.my-tooltip--right .my-tooltip__arrow {
+  top: 50%;
+  margin-top: -4px;
+}
+
+.my-tooltip-fade-enter-active,
+.my-tooltip-fade-leave-active {
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.my-tooltip-fade-enter-from,
+.my-tooltip-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-2px);
+}

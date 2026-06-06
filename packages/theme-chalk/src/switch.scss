@@ -1,0 +1,91 @@
+.my-switch {
+  --my-switch-width: 40px;
+  --my-switch-height: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  cursor: pointer;
+}
+
+.my-switch--small {
+  --my-switch-width: 32px;
+  --my-switch-height: 16px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-switch--large {
+  --my-switch-width: 48px;
+  --my-switch-height: 24px;
+  font-size: var(--my-font-size-large);
+}
+
+.my-switch__core {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: var(--my-switch-width);
+  height: var(--my-switch-height);
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--my-border-color);
+  transition: background var(--my-transition-duration);
+}
+
+.my-switch__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--my-switch-height) - 4px);
+  height: calc(var(--my-switch-height) - 4px);
+  border-radius: 50%;
+  background: var(--my-bg-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transform: translateX(0);
+  transition: transform var(--my-transition-duration);
+}
+
+.my-switch.is-checked .my-switch__core {
+  background: var(--my-color-primary);
+}
+
+.my-switch.is-checked .my-switch__action {
+  transform: translateX(calc(var(--my-switch-width) - var(--my-switch-height)));
+}
+
+.my-switch:focus-visible .my-switch__core {
+  box-shadow: 0 0 0 3px var(--my-color-primary-light-7);
+}
+
+.my-switch.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.my-switch.is-loading {
+  cursor: default;
+}
+
+.my-switch__loading {
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--my-color-primary);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: my-switch-loading 0.8s linear infinite;
+}
+
+.my-switch__label {
+  color: var(--my-text-color-regular);
+}
+
+@keyframes my-switch-loading {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -26,6 +26,6 @@ describe('主题系统', () => {
 
     expect(vars['--my-color-primary']).toBe('#a8d5ba')
     expect(vars['--my-color-accent']).toBe('#fff3c7')
+    expect(vars['--my-radius-base']).toBe('6px')
   })
 })
-

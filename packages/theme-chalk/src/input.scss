@@ -1,0 +1,122 @@
+.my-input {
+  --my-input-height: 32px;
+  --my-input-padding-x: 11px;
+
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  height: var(--my-input-height);
+  padding: 0 var(--my-input-padding-x);
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  transition:
+    border-color var(--my-transition-duration),
+    box-shadow var(--my-transition-duration);
+}
+
+.my-input:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-input.is-focused {
+  border-color: var(--my-color-primary);
+  box-shadow: 0 0 0 3px var(--my-color-primary-light-7);
+}
+
+.my-input.is-disabled {
+  background: var(--my-fill-color-light);
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-input.is-disabled .my-input__inner {
+  cursor: not-allowed;
+}
+
+.my-input--small {
+  --my-input-height: 28px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-input--large {
+  --my-input-height: 40px;
+  font-size: var(--my-font-size-large);
+}
+
+.my-input.is-textarea {
+  height: auto;
+  padding: 8px var(--my-input-padding-x);
+  align-items: stretch;
+}
+
+.my-input__inner {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+}
+
+.my-input__inner::placeholder {
+  color: var(--my-text-color-secondary);
+}
+
+.my-input__textarea {
+  resize: vertical;
+  line-height: 1.5;
+  padding: 0;
+}
+
+.my-input__prefix,
+.my-input__suffix {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--my-text-color-secondary);
+}
+
+.my-input__prefix {
+  margin-right: 6px;
+}
+
+.my-input__suffix {
+  margin-left: 6px;
+}
+
+.my-input__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color var(--my-transition-duration);
+}
+
+.my-input__action:hover {
+  color: var(--my-color-primary-active);
+}
+
+.my-input__count {
+  font-size: var(--my-font-size-small);
+  color: var(--my-text-color-secondary);
+}
+
+.my-input__count--textarea {
+  display: block;
+  text-align: right;
+  padding-top: 4px;
+}

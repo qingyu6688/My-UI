@@ -1,0 +1,109 @@
+.my-pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+}
+
+.my-pagination.is-small {
+  font-size: var(--my-font-size-small);
+}
+
+.my-pagination.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.my-pagination__spacer {
+  flex: 1;
+}
+
+.my-pagination__total {
+  color: var(--my-text-color-secondary);
+}
+
+.my-pagination__sizes select {
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: inherit;
+  font: inherit;
+}
+
+.my-pagination__button,
+.my-pagination__page {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: var(--my-radius-small);
+  background: transparent;
+  color: var(--my-text-color-regular);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background var(--my-transition-duration),
+    color var(--my-transition-duration);
+}
+
+.my-pagination__button:hover:not(:disabled),
+.my-pagination__page:hover:not(:disabled) {
+  background: var(--my-color-primary-light-9);
+  color: var(--my-color-primary-active);
+}
+
+.my-pagination__page.is-active {
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}
+
+.my-pagination__page.is-active:hover {
+  background: var(--my-color-primary-hover);
+  color: var(--my-text-color-primary);
+}
+
+.my-pagination__button:disabled,
+.my-pagination__page:disabled {
+  cursor: not-allowed;
+  color: var(--my-text-color-secondary);
+}
+
+.my-pagination__pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.my-pagination__ellipsis {
+  width: 24px;
+  text-align: center;
+  color: var(--my-text-color-secondary);
+}
+
+.my-pagination__jumper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--my-text-color-secondary);
+}
+
+.my-pagination__jumper-input {
+  width: 48px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font: inherit;
+  text-align: center;
+}
+
+.my-pagination__jumper-input:focus {
+  outline: 0;
+  border-color: var(--my-color-primary);
+  box-shadow: 0 0 0 3px var(--my-color-primary-light-7);
+}

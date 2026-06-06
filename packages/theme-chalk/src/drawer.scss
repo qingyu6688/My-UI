@@ -1,0 +1,140 @@
+.my-drawer__wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 2010;
+}
+
+.my-drawer__wrapper.is-modal {
+  background: rgba(38, 51, 43, 0.45);
+}
+
+.my-drawer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--my-bg-color);
+  box-shadow: var(--my-shadow-light);
+  outline: none;
+}
+
+.my-drawer--rtl {
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.my-drawer--ltr {
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.my-drawer--ttb {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.my-drawer--btt {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.my-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-drawer__title {
+  font-size: var(--my-font-size-large);
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-drawer__close {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.my-drawer__close:hover {
+  color: var(--my-color-primary-active);
+}
+
+.my-drawer__body {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  line-height: 1.6;
+}
+
+.my-drawer__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px 20px;
+}
+
+/* 过渡：遮罩淡入 + 面板滑入 */
+.my-drawer-rtl-enter-active,
+.my-drawer-rtl-leave-active,
+.my-drawer-ltr-enter-active,
+.my-drawer-ltr-leave-active,
+.my-drawer-ttb-enter-active,
+.my-drawer-ttb-leave-active,
+.my-drawer-btt-enter-active,
+.my-drawer-btt-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.my-drawer-rtl-enter-active .my-drawer,
+.my-drawer-rtl-leave-active .my-drawer,
+.my-drawer-ltr-enter-active .my-drawer,
+.my-drawer-ltr-leave-active .my-drawer,
+.my-drawer-ttb-enter-active .my-drawer,
+.my-drawer-ttb-leave-active .my-drawer,
+.my-drawer-btt-enter-active .my-drawer,
+.my-drawer-btt-leave-active .my-drawer {
+  transition: transform 0.3s ease;
+}
+
+.my-drawer-rtl-enter-from,
+.my-drawer-rtl-leave-to,
+.my-drawer-ltr-enter-from,
+.my-drawer-ltr-leave-to,
+.my-drawer-ttb-enter-from,
+.my-drawer-ttb-leave-to,
+.my-drawer-btt-enter-from,
+.my-drawer-btt-leave-to {
+  opacity: 0;
+}
+
+.my-drawer-rtl-enter-from .my-drawer,
+.my-drawer-rtl-leave-to .my-drawer {
+  transform: translateX(100%);
+}
+
+.my-drawer-ltr-enter-from .my-drawer,
+.my-drawer-ltr-leave-to .my-drawer {
+  transform: translateX(-100%);
+}
+
+.my-drawer-ttb-enter-from .my-drawer,
+.my-drawer-ttb-leave-to .my-drawer {
+  transform: translateY(-100%);
+}
+
+.my-drawer-btt-enter-from .my-drawer,
+.my-drawer-btt-leave-to .my-drawer {
+  transform: translateY(100%);
+}

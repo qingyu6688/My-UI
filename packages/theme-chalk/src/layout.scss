@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+.my-row {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.my-col {
+  box-sizing: border-box;
+  position: relative;
+}
+
+@for $i from 0 through 24 {
+  .my-col-#{$i} {
+    width: percentage(math.div($i, 24));
+  }
+  .my-col-offset-#{$i} {
+    margin-left: percentage(math.div($i, 24));
+  }
+  .my-col-push-#{$i} {
+    left: percentage(math.div($i, 24));
+  }
+  .my-col-pull-#{$i} {
+    right: percentage(math.div($i, 24));
+  }
+}

@@ -8,7 +8,18 @@
 | Python | 3.12.3 |
 | pip | 25.2 |
 | Git | 2.47.1.windows.1 |
-| 操作系统 | Microsoft Windows 10 专业版 |
+| 操作系统 | Microsoft Windows 10 专业版 10.0.19045 |
 
 检查日期：2026-06-06
+
+## 检查命令
+
+```bash
+node -v
+npm -v
+java -version
+python --version
+pip --version
+git --version
+```
 

@@ -1,0 +1,71 @@
+.my-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--my-transition-duration);
+}
+
+.my-link:hover,
+.my-link:focus-visible {
+  color: var(--my-color-primary-active);
+}
+
+.my-link:focus-visible {
+  outline: 2px solid var(--my-color-primary-light-5);
+  outline-offset: 2px;
+  border-radius: var(--my-radius-small);
+}
+
+.my-link--primary {
+  color: var(--my-color-primary-active);
+}
+
+.my-link--success {
+  color: var(--my-color-success);
+}
+
+.my-link--warning {
+  color: var(--my-color-warning);
+}
+
+.my-link--danger {
+  color: var(--my-color-danger);
+}
+
+.my-link--info {
+  color: var(--my-color-info);
+}
+
+.my-link--underline-always {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.my-link--underline-hover:hover,
+.my-link--underline-hover:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.my-link--underline-never,
+.my-link--underline-never:hover,
+.my-link--underline-never:focus-visible {
+  text-decoration: none;
+}
+
+.my-link.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.my-link__icon,
+.my-link__content {
+  display: inline-flex;
+  align-items: center;
+}

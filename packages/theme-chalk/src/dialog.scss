@@ -1,0 +1,115 @@
+.my-dialog__wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: auto;
+  z-index: 2010;
+}
+
+.my-dialog__wrapper.is-modal {
+  background: rgba(38, 51, 43, 0.45);
+}
+
+.my-dialog {
+  position: relative;
+  box-sizing: border-box;
+  max-width: calc(100vw - 32px);
+  background: var(--my-bg-color);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+  outline: none;
+}
+
+.my-dialog.is-fullscreen {
+  width: 100vw !important;
+  height: 100vh;
+  margin-top: 0 !important;
+  max-width: 100vw;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-dialog.is-fullscreen .my-dialog__body {
+  flex: 1;
+  overflow: auto;
+}
+
+.my-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-dialog.is-center .my-dialog__header {
+  justify-content: center;
+  position: relative;
+}
+
+.my-dialog__title {
+  font-size: var(--my-font-size-large);
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-dialog__close {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.my-dialog__close:hover {
+  color: var(--my-color-primary-active);
+}
+
+.my-dialog.is-center .my-dialog__close {
+  position: absolute;
+  right: 16px;
+}
+
+.my-dialog__body {
+  padding: 20px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  line-height: 1.6;
+}
+
+.my-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px 20px;
+}
+
+.my-dialog.is-center .my-dialog__footer {
+  justify-content: center;
+}
+
+.my-dialog-fade-enter-active,
+.my-dialog-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.my-dialog-fade-enter-active .my-dialog,
+.my-dialog-fade-leave-active .my-dialog {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.my-dialog-fade-enter-from,
+.my-dialog-fade-leave-to {
+  opacity: 0;
+}
+
+.my-dialog-fade-enter-from .my-dialog,
+.my-dialog-fade-leave-to .my-dialog {
+  transform: translateY(-16px);
+  opacity: 0;
+}

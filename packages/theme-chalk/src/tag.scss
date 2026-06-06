@@ -1,0 +1,105 @@
+.my-tag {
+  --my-tag-bg: var(--my-color-primary-light-9);
+  --my-tag-border: var(--my-color-primary-light-7);
+  --my-tag-color: var(--my-color-primary-active);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--my-tag-border);
+  border-radius: var(--my-radius-small);
+  background: var(--my-tag-bg);
+  color: var(--my-tag-color);
+  font-size: var(--my-font-size-small);
+  line-height: 1;
+  white-space: nowrap;
+  transition: opacity var(--my-transition-duration);
+}
+
+.my-tag.is-static {
+  transition: none;
+}
+
+.my-tag--small {
+  height: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.my-tag--large {
+  height: 28px;
+  padding: 0 10px;
+  font-size: var(--my-font-size-base);
+}
+
+.my-tag.is-round {
+  border-radius: 999px;
+}
+
+.my-tag--default {
+  --my-tag-bg: var(--my-fill-color-light);
+  --my-tag-border: var(--my-border-color-light);
+  --my-tag-color: var(--my-text-color-regular);
+}
+
+.my-tag--success {
+  --my-tag-bg: #eaf6ec;
+  --my-tag-border: #c8e3cd;
+  --my-tag-color: #4d8f59;
+}
+
+.my-tag--warning {
+  --my-tag-bg: #fdf6e0;
+  --my-tag-border: #f0e0a8;
+  --my-tag-color: #94701a;
+}
+
+.my-tag--danger {
+  --my-tag-bg: #fbeae8;
+  --my-tag-border: #f0c7c1;
+  --my-tag-color: #a8443a;
+}
+
+.my-tag--info {
+  --my-tag-bg: #eef1f2;
+  --my-tag-border: #d2dadc;
+  --my-tag-color: #586a6e;
+}
+
+.my-tag--plain {
+  background: transparent;
+}
+
+.my-tag--dark {
+  background: var(--my-tag-color);
+  border-color: var(--my-tag-color);
+  color: var(--my-bg-color);
+}
+
+.my-tag--dark.my-tag--default {
+  background: var(--my-text-color-regular);
+  border-color: var(--my-text-color-regular);
+}
+
+.my-tag__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.my-tag__close:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.06);
+}

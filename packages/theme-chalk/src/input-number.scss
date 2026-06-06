@@ -1,0 +1,83 @@
+.my-input-number {
+  --my-input-number-height: 32px;
+
+  display: inline-flex;
+  align-items: stretch;
+  width: 140px;
+  height: var(--my-input-number-height);
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  overflow: hidden;
+  transition: border-color var(--my-transition-duration);
+}
+
+.my-input-number:hover:not(.is-disabled) {
+  border-color: var(--my-color-primary);
+}
+
+.my-input-number:focus-within {
+  border-color: var(--my-color-primary);
+  box-shadow: 0 0 0 3px var(--my-color-primary-light-7);
+}
+
+.my-input-number.is-disabled {
+  background: var(--my-fill-color-light);
+  cursor: not-allowed;
+}
+
+.my-input-number--small {
+  --my-input-number-height: 28px;
+  width: 120px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-input-number--large {
+  --my-input-number-height: 40px;
+  width: 160px;
+  font-size: var(--my-font-size-large);
+}
+
+.my-input-number__increment,
+.my-input-number__decrement {
+  width: var(--my-input-number-height);
+  border: 0;
+  background: var(--my-fill-color-light);
+  color: var(--my-text-color-regular);
+  font-size: 16px;
+  cursor: pointer;
+  transition: color var(--my-transition-duration), background var(--my-transition-duration);
+}
+
+.my-input-number__increment:hover:not(:disabled),
+.my-input-number__decrement:hover:not(:disabled) {
+  color: var(--my-color-primary-active);
+  background: var(--my-color-primary-light-9);
+}
+
+.my-input-number__increment:disabled,
+.my-input-number__decrement:disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.my-input-number__inner {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--my-text-color-regular);
+  font: inherit;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.my-input-number__inner::placeholder {
+  color: var(--my-text-color-secondary);
+}
+
+.my-input-number.is-without-controls {
+  width: 120px;
+}

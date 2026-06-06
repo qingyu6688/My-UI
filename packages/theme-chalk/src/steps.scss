@@ -1,0 +1,128 @@
+.my-steps {
+  display: flex;
+}
+
+.my-steps--horizontal {
+  flex-direction: row;
+}
+
+.my-steps--vertical {
+  flex-direction: column;
+}
+
+.my-step {
+  display: flex;
+  position: relative;
+  flex: 1;
+}
+
+.my-steps--horizontal .my-step {
+  flex-direction: column;
+}
+
+.my-steps--vertical .my-step {
+  flex-direction: row;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.my-step.is-last {
+  flex: none;
+}
+
+.my-step__head {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.my-steps--vertical .my-step__head {
+  flex-direction: column;
+}
+
+.my-step__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--my-border-color);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.my-step__line {
+  flex: 1;
+  height: 2px;
+  background: var(--my-border-color-light);
+}
+
+.my-steps--horizontal .my-step__line {
+  position: absolute;
+  top: 13px;
+  left: 26px;
+  right: 0;
+  width: auto;
+}
+
+.my-steps--vertical .my-step__line {
+  width: 2px;
+  height: auto;
+  flex: 1;
+  min-height: 24px;
+}
+
+.my-step__main {
+  padding: 8px 8px 0 0;
+}
+
+.my-steps--vertical .my-step__main {
+  padding: 2px 0 0;
+}
+
+.my-step__title {
+  font-size: var(--my-font-size-base);
+  font-weight: 600;
+  color: var(--my-text-color-regular);
+}
+
+.my-step__description {
+  margin-top: 2px;
+  font-size: var(--my-font-size-small);
+  color: var(--my-text-color-secondary);
+}
+
+/* 状态 */
+.my-step.is-process .my-step__icon {
+  border-color: var(--my-color-primary);
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}
+
+.my-step.is-process .my-step__title {
+  color: var(--my-color-primary-active);
+}
+
+.my-step.is-finish .my-step__icon {
+  border-color: var(--my-color-primary);
+  color: var(--my-color-primary-active);
+}
+
+.my-step.is-finish .my-step__line {
+  background: var(--my-color-primary);
+}
+
+.my-step.is-error .my-step__icon {
+  border-color: var(--my-color-danger);
+  background: var(--my-color-danger);
+  color: #ffffff;
+}
+
+.my-step.is-error .my-step__title {
+  color: var(--my-color-danger);
+}

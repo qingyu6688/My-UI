@@ -1,0 +1,63 @@
+.my-collapse {
+  border-top: 1px solid var(--my-border-color-light);
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--my-border-color-light);
+  background: transparent;
+  color: var(--my-text-color-primary);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.my-collapse-item:last-child .my-collapse-item__header {
+  border-bottom: 0;
+}
+
+.my-collapse-item.is-active .my-collapse-item__header {
+  border-bottom-color: transparent;
+}
+
+.my-collapse-item.is-disabled .my-collapse-item__header {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-collapse-item__arrow {
+  transition: transform var(--my-transition-duration);
+  font-size: 18px;
+  color: var(--my-text-color-secondary);
+}
+
+.my-collapse-item__arrow.is-active {
+  transform: rotate(90deg);
+}
+
+.my-collapse-item__wrap {
+  overflow: hidden;
+}
+
+.my-collapse-item__content {
+  padding: 4px 4px 16px;
+  color: var(--my-text-color-regular);
+  line-height: 1.6;
+}
+
+.my-collapse-enter-active,
+.my-collapse-leave-active {
+  transition: opacity var(--my-transition-duration);
+}
+
+.my-collapse-enter-from,
+.my-collapse-leave-to {
+  opacity: 0;
+}

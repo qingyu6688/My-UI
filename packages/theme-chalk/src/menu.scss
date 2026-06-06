@@ -1,0 +1,106 @@
+.my-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+}
+
+.my-menu--vertical {
+  border-right: 1px solid var(--my-border-color-light);
+}
+
+.my-menu--horizontal {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-menu--horizontal > .my-menu-item,
+.my-menu--horizontal > .my-sub-menu {
+  border-bottom: 2px solid transparent;
+}
+
+.my-menu--horizontal > .my-menu-item.is-active {
+  border-bottom-color: var(--my-color-primary);
+}
+
+.my-menu.is-collapse {
+  width: 56px;
+}
+
+.my-menu.is-collapse .my-menu-item__title,
+.my-menu.is-collapse .my-sub-menu__label,
+.my-menu.is-collapse .my-sub-menu__arrow,
+.my-menu.is-collapse .my-sub-menu__list {
+  display: none;
+}
+
+.my-menu-item,
+.my-sub-menu__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding-right: 16px;
+  cursor: pointer;
+  transition:
+    background var(--my-transition-duration),
+    color var(--my-transition-duration);
+}
+
+.my-menu-item:hover:not(.is-disabled):not(.is-active),
+.my-sub-menu__title:hover {
+  background: var(--my-color-primary-light-9);
+  color: var(--my-color-primary-active);
+}
+
+.my-menu-item.is-active {
+  background: var(--my-color-primary-light-7);
+  color: var(--my-color-primary-active);
+  font-weight: 600;
+}
+
+.my-menu-item.is-disabled,
+.my-sub-menu.is-disabled > .my-sub-menu__title {
+  cursor: not-allowed;
+  color: var(--my-text-color-secondary);
+}
+
+.my-menu-item__title,
+.my-sub-menu__label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-menu-item__icon,
+.my-sub-menu__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.my-sub-menu {
+  list-style: none;
+}
+
+.my-sub-menu__arrow {
+  margin-left: auto;
+  color: var(--my-text-color-secondary);
+  font-size: 12px;
+  transition: transform var(--my-transition-duration);
+}
+
+.my-sub-menu__arrow.is-open {
+  transform: rotate(180deg);
+}
+
+.my-sub-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--my-bg-color-soft);
+}

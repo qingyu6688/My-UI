@@ -1,0 +1,28 @@
+.my-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  font-style: normal;
+  line-height: 1;
+  color: inherit;
+  fill: currentColor;
+  vertical-align: -0.125em;
+  transition: transform var(--my-transition-duration);
+}
+
+.my-icon > svg {
+  width: 1em;
+  height: 1em;
+}
+
+.my-icon.is-spin {
+  animation: my-icon-spin 1s linear infinite;
+}
+
+@keyframes my-icon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

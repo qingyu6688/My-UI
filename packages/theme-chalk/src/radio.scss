@@ -1,0 +1,97 @@
+.my-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 24px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  cursor: pointer;
+  user-select: none;
+}
+
+.my-radio--small {
+  font-size: var(--my-font-size-small);
+}
+
+.my-radio--large {
+  font-size: var(--my-font-size-large);
+}
+
+.my-radio.is-bordered {
+  padding: 4px 12px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  transition: border-color var(--my-transition-duration), background var(--my-transition-duration);
+}
+
+.my-radio.is-bordered.is-checked {
+  border-color: var(--my-color-primary);
+  background: var(--my-color-primary-light-9);
+}
+
+.my-radio__input {
+  position: relative;
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.my-radio--small .my-radio__input {
+  width: 14px;
+  height: 14px;
+}
+
+.my-radio--large .my-radio__input {
+  width: 18px;
+  height: 18px;
+}
+
+.my-radio__original {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.my-radio__inner {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--my-border-color);
+  border-radius: 50%;
+  background: var(--my-bg-color);
+  transition:
+    border-color var(--my-transition-duration),
+    background var(--my-transition-duration);
+}
+
+.my-radio:hover:not(.is-disabled) .my-radio__inner {
+  border-color: var(--my-color-primary);
+}
+
+.my-radio.is-checked .my-radio__inner {
+  border-color: var(--my-color-primary);
+  background: var(--my-bg-color);
+  box-shadow: inset 0 0 0 4px var(--my-color-primary);
+}
+
+.my-radio.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-radio.is-disabled .my-radio__inner {
+  background: var(--my-fill-color-light);
+}
+
+.my-radio.is-checked.is-disabled .my-radio__inner {
+  box-shadow: inset 0 0 0 4px var(--my-border-color);
+}
+
+.my-radio-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+}

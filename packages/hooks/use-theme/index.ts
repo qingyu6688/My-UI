@@ -81,6 +81,14 @@ export function themeToCssVars(theme: ThemeTokens): Record<string, string> {
     '--my-border-color': semanticThemeTokens.borderBase,
     '--my-border-color-light': semanticThemeTokens.borderLight,
     '--my-fill-color-light': semanticThemeTokens.fillLight,
+    '--my-radius-base': '6px',
+    '--my-radius-small': '4px',
+    '--my-radius-round': '999px',
+    '--my-font-size-small': '13px',
+    '--my-font-size-base': '14px',
+    '--my-font-size-large': '16px',
+    '--my-transition-duration': '0.2s',
+    '--my-shadow-light': '0 8px 24px rgba(38, 51, 43, 0.08)',
   }
 }
 

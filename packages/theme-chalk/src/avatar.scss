@@ -1,0 +1,42 @@
+.my-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: var(--my-fill-color-light);
+  color: var(--my-text-color-secondary);
+  font-size: 18px;
+  user-select: none;
+}
+
+.my-avatar--circle {
+  border-radius: 50%;
+}
+
+.my-avatar--square {
+  border-radius: var(--my-radius-base);
+}
+
+.my-avatar--small {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+}
+
+.my-avatar--large {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+}
+
+.my-avatar__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.my-avatar__fallback {
+  line-height: 1;
+}

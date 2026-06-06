@@ -1,0 +1,112 @@
+.my-message-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2030;
+  pointer-events: none;
+}
+
+.my-message-item {
+  pointer-events: auto;
+}
+
+.my-message {
+  --my-message-bg: #eef1f2;
+  --my-message-border: #d2dadc;
+  --my-message-color: #586a6e;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 240px;
+  max-width: 480px;
+  padding: 10px 16px;
+  border: 1px solid var(--my-message-border);
+  border-radius: var(--my-radius-base);
+  background: var(--my-message-bg);
+  color: var(--my-message-color);
+  font-size: var(--my-font-size-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-message.is-center {
+  justify-content: center;
+}
+
+.my-message--success {
+  --my-message-bg: #eaf6ec;
+  --my-message-border: #c8e3cd;
+  --my-message-color: #4d8f59;
+}
+
+.my-message--warning {
+  --my-message-bg: #fdf6e0;
+  --my-message-border: #f0e0a8;
+  --my-message-color: #94701a;
+}
+
+.my-message--danger {
+  --my-message-bg: #fbeae8;
+  --my-message-border: #f0c7c1;
+  --my-message-color: #a8443a;
+}
+
+.my-message__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.my-message__content {
+  flex: 1;
+}
+
+.my-message__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--my-message-color);
+  color: var(--my-bg-color);
+  font-size: 12px;
+}
+
+.my-message__close {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.7;
+  padding: 0 2px;
+}
+
+.my-message__close:hover {
+  opacity: 1;
+}
+
+.my-message-fade-enter-active,
+.my-message-fade-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.my-message-fade-enter-from,
+.my-message-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}

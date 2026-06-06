@@ -1,0 +1,111 @@
+.my-alert {
+  --my-alert-bg: var(--my-color-primary-light-9);
+  --my-alert-border: var(--my-color-primary-light-7);
+  --my-alert-color: var(--my-color-primary-active);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--my-alert-border);
+  border-radius: var(--my-radius-base);
+  background: var(--my-alert-bg);
+  color: var(--my-alert-color);
+  font-size: var(--my-font-size-base);
+  line-height: 1.5;
+}
+
+.my-alert.is-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.my-alert--info {
+  --my-alert-bg: #eef1f2;
+  --my-alert-border: #d2dadc;
+  --my-alert-color: #586a6e;
+}
+
+.my-alert--success {
+  --my-alert-bg: #eaf6ec;
+  --my-alert-border: #c8e3cd;
+  --my-alert-color: #4d8f59;
+}
+
+.my-alert--warning {
+  --my-alert-bg: #fdf6e0;
+  --my-alert-border: #f0e0a8;
+  --my-alert-color: #94701a;
+}
+
+.my-alert--danger {
+  --my-alert-bg: #fbeae8;
+  --my-alert-border: #f0c7c1;
+  --my-alert-color: #a8443a;
+}
+
+.my-alert--dark {
+  background: var(--my-alert-color);
+  border-color: var(--my-alert-color);
+  color: var(--my-bg-color);
+}
+
+.my-alert__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.my-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.my-alert__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: inherit;
+}
+
+.my-alert.has-description .my-alert__title {
+  margin-bottom: 4px;
+}
+
+.my-alert__description {
+  margin: 0;
+  font-size: var(--my-font-size-small);
+  opacity: 0.85;
+}
+
+.my-alert__close {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.7;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.my-alert__close:hover {
+  opacity: 1;
+}
+
+.my-alert-fade-enter-active,
+.my-alert-fade-leave-active {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.my-alert-fade-enter-from,
+.my-alert-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
