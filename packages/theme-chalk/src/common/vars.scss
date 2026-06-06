@@ -1,0 +1,50 @@
+:root {
+  --my-color-primary: #a8d5ba;
+  --my-color-primary-hover: #b9dec8;
+  --my-color-primary-active: #8fb59e;
+  --my-color-primary-light-3: #c2e3ce;
+  --my-color-primary-light-5: #d4eadc;
+  --my-color-primary-light-7: #e5f2e9;
+  --my-color-primary-light-9: #f6fbf8;
+  --my-color-secondary: #d7e8bd;
+  --my-color-secondary-light-5: #ebf4de;
+  --my-color-secondary-light-8: #f7fbf2;
+  --my-color-accent: #fff3c7;
+  --my-color-accent-light-5: #fff9e3;
+  --my-color-accent-light-8: #fffdf4;
+  --my-color-success: #7fbd8a;
+  --my-color-warning: #e5c76f;
+  --my-color-danger: #d9897f;
+  --my-color-info: #8aa1a5;
+  --my-text-color-primary: #26332b;
+  --my-text-color-regular: #3f4a42;
+  --my-text-color-secondary: #6f7a71;
+  --my-bg-color-page: #fbfcf7;
+  --my-bg-color: #ffffff;
+  --my-bg-color-soft: #f5f8ef;
+  --my-border-color: #dce7d6;
+  --my-border-color-light: #ecf2e7;
+  --my-fill-color-light: #f7faef;
+  --my-radius-base: 6px;
+  --my-radius-small: 4px;
+  --my-radius-round: 999px;
+  --my-font-size-small: 13px;
+  --my-font-size-base: 14px;
+  --my-font-size-large: 16px;
+  --my-transition-duration: 0.2s;
+  --my-shadow-light: 0 8px 24px rgba(38, 51, 43, 0.08);
+}
+
+html.dark {
+  --my-text-color-primary: #edf4ee;
+  --my-text-color-regular: #d2ded4;
+  --my-text-color-secondary: #9cad9f;
+  --my-bg-color-page: #141a16;
+  --my-bg-color: #1c241f;
+  --my-bg-color-soft: #223025;
+  --my-border-color: #35483b;
+  --my-border-color-light: #2a3a30;
+  --my-fill-color-light: #243329;
+  --my-shadow-light: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+

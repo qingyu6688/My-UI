@@ -1,0 +1,23 @@
+{
+  "name": "@qingyu6688/my-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./theme-chalk/index.css": "./dist/theme-chalk/index.css"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  }
+}

@@ -1,0 +1,151 @@
+.my-button {
+  --my-button-bg-color: var(--my-bg-color);
+  --my-button-border-color: var(--my-border-color);
+  --my-button-text-color: var(--my-text-color-regular);
+  --my-button-hover-bg-color: var(--my-color-primary-light-9);
+  --my-button-hover-border-color: var(--my-color-primary);
+  --my-button-hover-text-color: var(--my-color-primary-active);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--my-button-border-color);
+  border-radius: var(--my-radius-base);
+  color: var(--my-button-text-color);
+  background: var(--my-button-bg-color);
+  font: inherit;
+  font-size: var(--my-font-size-base);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--my-transition-duration),
+    border-color var(--my-transition-duration),
+    background-color var(--my-transition-duration),
+    box-shadow var(--my-transition-duration);
+}
+
+.my-button:hover,
+.my-button:focus-visible {
+  border-color: var(--my-button-hover-border-color);
+  color: var(--my-button-hover-text-color);
+  background: var(--my-button-hover-bg-color);
+}
+
+.my-button:focus-visible {
+  outline: 2px solid var(--my-color-primary-light-5);
+  outline-offset: 2px;
+}
+
+.my-button--small {
+  height: 28px;
+  padding: 0 11px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-button--large {
+  height: 40px;
+  padding: 0 18px;
+  font-size: var(--my-font-size-large);
+}
+
+.my-button--primary {
+  --my-button-bg-color: var(--my-color-primary);
+  --my-button-border-color: var(--my-color-primary);
+  --my-button-text-color: var(--my-text-color-primary);
+  --my-button-hover-bg-color: var(--my-color-primary-hover);
+  --my-button-hover-border-color: var(--my-color-primary-hover);
+  --my-button-hover-text-color: var(--my-text-color-primary);
+}
+
+.my-button--success {
+  --my-button-bg-color: var(--my-color-success);
+  --my-button-border-color: var(--my-color-success);
+  --my-button-text-color: #ffffff;
+  --my-button-hover-bg-color: #91c99a;
+  --my-button-hover-border-color: #91c99a;
+  --my-button-hover-text-color: #ffffff;
+}
+
+.my-button--warning {
+  --my-button-bg-color: var(--my-color-warning);
+  --my-button-border-color: var(--my-color-warning);
+  --my-button-text-color: #3d3214;
+  --my-button-hover-bg-color: #ebd186;
+  --my-button-hover-border-color: #ebd186;
+  --my-button-hover-text-color: #3d3214;
+}
+
+.my-button--danger {
+  --my-button-bg-color: var(--my-color-danger);
+  --my-button-border-color: var(--my-color-danger);
+  --my-button-text-color: #ffffff;
+  --my-button-hover-bg-color: #e19a91;
+  --my-button-hover-border-color: #e19a91;
+  --my-button-hover-text-color: #ffffff;
+}
+
+.my-button--info {
+  --my-button-bg-color: var(--my-color-info);
+  --my-button-border-color: var(--my-color-info);
+  --my-button-text-color: #ffffff;
+  --my-button-hover-bg-color: #9aadb1;
+  --my-button-hover-border-color: #9aadb1;
+  --my-button-hover-text-color: #ffffff;
+}
+
+.my-button.is-plain {
+  --my-button-bg-color: var(--my-bg-color);
+  --my-button-hover-bg-color: var(--my-color-primary-light-9);
+}
+
+.my-button.is-round {
+  border-radius: var(--my-radius-round);
+}
+
+.my-button.is-text {
+  height: auto;
+  padding: 0;
+  border-color: transparent;
+  color: var(--my-color-primary-active);
+  background: transparent;
+}
+
+.my-button.is-text:hover,
+.my-button.is-text:focus-visible {
+  color: var(--my-text-color-primary);
+  background: transparent;
+}
+
+.my-button.is-disabled,
+.my-button.is-loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.my-button__loading {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: my-button-loading 0.8s linear infinite;
+}
+
+.my-button__icon,
+.my-button__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes my-button-loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
