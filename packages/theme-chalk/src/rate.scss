@@ -1,0 +1,40 @@
+.my-rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.my-rate__item {
+  position: relative;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.my-rate.is-disabled .my-rate__item {
+  cursor: default;
+}
+
+.my-rate__star {
+  color: var(--my-border-color);
+  transition: color var(--my-transition-duration);
+}
+
+.my-rate__item.is-full .my-rate__star {
+  color: var(--my-color-warning);
+}
+
+.my-rate__item.is-half .my-rate__star--half {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: var(--my-color-warning);
+}
+
+.my-rate__text {
+  margin-left: 6px;
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+}

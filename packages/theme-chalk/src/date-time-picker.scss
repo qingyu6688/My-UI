@@ -1,0 +1,136 @@
+.my-date-time-picker {
+  display: inline-block;
+  width: 220px;
+}
+
+.my-date-time-picker__trigger {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  cursor: pointer;
+  transition: border-color var(--my-transition-duration);
+}
+
+.my-date-time-picker__trigger:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-date-time-picker--small .my-date-time-picker__trigger {
+  height: 28px;
+}
+.my-date-time-picker--large .my-date-time-picker__trigger {
+  height: 40px;
+}
+
+.my-date-time-picker.is-disabled .my-date-time-picker__trigger {
+  background: var(--my-fill-color-light);
+  cursor: not-allowed;
+}
+
+.my-date-time-picker__value {
+  flex: 1;
+  color: var(--my-text-color-regular);
+}
+
+.my-date-time-picker__placeholder {
+  flex: 1;
+  color: var(--my-text-color-secondary);
+}
+
+.my-date-time-picker__clear {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  cursor: pointer;
+}
+
+.my-date-time-picker__panel {
+  width: 300px;
+  padding: 12px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-date-time-picker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-date-time-picker__header button {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--my-text-color-regular);
+}
+
+.my-date-time-picker__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.my-date-time-picker__table th {
+  padding: 4px;
+  color: var(--my-text-color-secondary);
+  font-weight: 500;
+  font-size: var(--my-font-size-small);
+}
+
+.my-date-time-picker__cell {
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--my-radius-small);
+  color: var(--my-text-color-regular);
+}
+
+.my-date-time-picker__cell:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-date-time-picker__cell.is-other-month {
+  color: var(--my-text-color-secondary);
+  opacity: 0.5;
+}
+
+.my-date-time-picker__cell.is-selected {
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}
+
+.my-date-time-picker__time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--my-border-color-light);
+}
+
+.my-date-time-picker__time-controls {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.my-date-time-picker__time-controls input {
+  width: 48px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  text-align: center;
+  font: inherit;
+  outline: none;
+}

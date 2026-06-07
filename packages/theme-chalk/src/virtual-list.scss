@@ -1,0 +1,27 @@
+.my-virtual-list {
+  position: relative;
+  overflow-y: auto;
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+}
+
+.my-virtual-list__phantom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.my-virtual-list__content {
+  position: relative;
+}
+
+.my-virtual-list__item {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--my-border-color-light);
+  color: var(--my-text-color-regular);
+}

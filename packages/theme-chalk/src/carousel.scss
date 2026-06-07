@@ -1,0 +1,78 @@
+.my-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--my-radius-base);
+}
+
+.my-carousel__track {
+  position: relative;
+  width: 100%;
+}
+
+.my-carousel-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.my-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(38, 51, 43, 0.3);
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--my-transition-duration);
+  z-index: 2;
+}
+
+.my-carousel__arrow--left {
+  left: 12px;
+}
+.my-carousel__arrow--right {
+  right: 12px;
+}
+
+.my-carousel--arrow-always .my-carousel__arrow {
+  opacity: 1;
+}
+
+.my-carousel--arrow-hover:hover .my-carousel__arrow {
+  opacity: 1;
+}
+
+.my-carousel__indicators {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 2;
+}
+
+.my-carousel__indicator {
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-carousel__indicator.is-active {
+  background: #ffffff;
+}

@@ -5,7 +5,7 @@
 | 项目 | 内容 |
 | --- | --- |
 | 项目名称 | My UI |
-| 当前版本 | 1.0.2 |
+| 当前版本 | 1.0.3 |
 | 项目类型 | 前端组件库 / 文档站 |
 | 技术栈 | Vue 3、TypeScript、Vite、VitePress、SCSS、Vitest |
 | 主要入口 | `packages/`、`src/`、`docs/` |

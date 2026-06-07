@@ -1,0 +1,35 @@
+.my-scrollbar {
+  position: relative;
+  overflow: hidden;
+}
+
+.my-scrollbar__wrap {
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.my-scrollbar__wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.my-scrollbar__bar {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  width: 6px;
+  z-index: 1;
+}
+
+.my-scrollbar__thumb {
+  width: 100%;
+  border-radius: 3px;
+  background: var(--my-border-color);
+  transition: background var(--my-transition-duration);
+  cursor: pointer;
+}
+
+.my-scrollbar__thumb:hover {
+  background: var(--my-text-color-secondary);
+}

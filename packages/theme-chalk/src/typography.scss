@@ -1,0 +1,40 @@
+.my-title {
+  margin: 0;
+  color: var(--my-text-color-primary);
+  line-height: 1.4;
+}
+
+.my-title.is-bold {
+  font-weight: 600;
+}
+
+.my-title--1 {
+  font-size: 28px;
+}
+.my-title--2 {
+  font-size: 24px;
+}
+.my-title--3 {
+  font-size: 20px;
+}
+.my-title--4 {
+  font-size: 17px;
+}
+.my-title--5 {
+  font-size: 15px;
+}
+
+.my-paragraph {
+  margin: 0 0 12px;
+  color: var(--my-text-color-regular);
+}
+
+.my-paragraph--compact {
+  line-height: 1.5;
+}
+.my-paragraph--default {
+  line-height: 1.7;
+}
+.my-paragraph--relaxed {
+  line-height: 2;
+}

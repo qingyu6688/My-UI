@@ -1,0 +1,59 @@
+.my-mention {
+  display: inline-block;
+  width: 260px;
+}
+
+.my-mention__input {
+  width: 100%;
+  height: 32px;
+  padding: 0 11px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.my-mention__input:focus {
+  border-color: var(--my-color-primary);
+}
+
+.my-mention__panel {
+  min-width: 160px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-mention__list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.my-mention__item {
+  padding: 8px 12px;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-mention__item:hover {
+  background: var(--my-color-primary-light-9);
+  color: var(--my-color-primary-active);
+}
+
+.my-mention__item.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-mention__empty {
+  padding: 8px 12px;
+  color: var(--my-text-color-secondary);
+}

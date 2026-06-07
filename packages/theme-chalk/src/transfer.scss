@@ -1,0 +1,86 @@
+.my-transfer {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.my-transfer__panel {
+  width: 200px;
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  overflow: hidden;
+}
+
+.my-transfer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--my-border-color-light);
+  background: var(--my-bg-color-soft);
+  color: var(--my-text-color-primary);
+  font-weight: 600;
+}
+
+.my-transfer__count {
+  color: var(--my-text-color-secondary);
+  font-weight: 400;
+  font-size: var(--my-font-size-small);
+}
+
+.my-transfer__filter {
+  width: calc(100% - 24px);
+  margin: 8px 12px;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  outline: none;
+  font: inherit;
+}
+
+.my-transfer__filter:focus {
+  border-color: var(--my-color-primary);
+}
+
+.my-transfer__list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.my-transfer__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-transfer__item:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-transfer__item.is-checked {
+  color: var(--my-color-primary-active);
+}
+
+.my-transfer__item.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-transfer__check {
+  font-size: 14px;
+}
+
+.my-transfer__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

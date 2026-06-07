@@ -121,20 +121,38 @@ export const previewRows = [
   { name: 'Table', type: '数据展示', status: '已完成' },
 ]
 
+/** 组件总数（与组件画廊分类统计保持一致：8+23+18+9+11+4） */
+export const componentCount = 73
+
+/** 组件画廊分类概览，用于首页快速跳转 */
+export const galleryCategories = [
+  { key: 'basic', label: '基础组件', count: 8 },
+  { key: 'form', label: '表单组件', count: 23 },
+  { key: 'data', label: '数据展示', count: 18 },
+  { key: 'nav', label: '导航组件', count: 9 },
+  { key: 'feedback', label: '反馈组件', count: 11 },
+  { key: 'other', label: '其他组件', count: 4 },
+]
+
 export const roadmapItems: RoadmapItem[] = [
   {
-    title: '首页与导航',
-    status: '本轮完成',
-    description: '按 Element Plus 的清爽文档站风格整理首页、导航与独立页面入口。',
+    title: '全量组件交付',
+    status: '已完成',
+    description: '需求文档中的 P0、P1、P2 组件已全部实现，共 73 个，含主题系统与配置中心。',
   },
   {
-    title: '组件 API 文档',
-    status: '下一步',
-    description: '继续补齐 Props、Events、Slots 文档和边界测试。',
+    title: '组件展示画廊',
+    status: '已完成',
+    description: '组件页提供全部组件的真实渲染示例，跟随当前主题色实时预览。',
   },
   {
-    title: '主题编辑器',
-    status: '计划中',
-    description: '增加主题导入导出、最近主题和对比度提示。',
+    title: '测试与质量',
+    status: '已完成',
+    description: '232 个单元测试覆盖核心交互，typecheck、lint 与文档构建全部通过。',
+  },
+  {
+    title: '发布准备',
+    status: '进行中',
+    description: '完善构建产物的 exports、补齐组件 API 文档示例与变更记录。',
   },
 ]

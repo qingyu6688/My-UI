@@ -1,0 +1,112 @@
+.my-cascader {
+  display: inline-block;
+  width: 240px;
+}
+
+.my-cascader__trigger {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  cursor: pointer;
+  transition: border-color var(--my-transition-duration);
+}
+
+.my-cascader__trigger:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-cascader--small .my-cascader__trigger {
+  height: 28px;
+}
+.my-cascader--large .my-cascader__trigger {
+  height: 40px;
+}
+
+.my-cascader.is-disabled .my-cascader__trigger {
+  background: var(--my-fill-color-light);
+  cursor: not-allowed;
+}
+
+.my-cascader__value {
+  flex: 1;
+  color: var(--my-text-color-regular);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-cascader__placeholder {
+  flex: 1;
+  color: var(--my-text-color-secondary);
+}
+
+.my-cascader__arrow {
+  color: var(--my-text-color-secondary);
+  transition: transform var(--my-transition-duration);
+}
+
+.my-cascader__arrow.is-reverse {
+  transform: rotate(180deg);
+}
+
+.my-cascader__clear {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  cursor: pointer;
+}
+
+.my-cascader__panel {
+  display: flex;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-cascader__column {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  min-width: 140px;
+  max-height: 240px;
+  overflow-y: auto;
+  border-right: 1px solid var(--my-border-color-light);
+}
+
+.my-cascader__column:last-child {
+  border-right: 0;
+}
+
+.my-cascader__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-cascader__option:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-cascader__option.is-active {
+  background: var(--my-color-primary-light-7);
+  color: var(--my-text-color-primary);
+  font-weight: 600;
+}
+
+.my-cascader__option.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+}
+
+.my-cascader__expand {
+  color: var(--my-text-color-secondary);
+}

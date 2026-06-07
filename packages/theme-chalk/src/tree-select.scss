@@ -1,0 +1,69 @@
+.my-tree-select {
+  display: inline-block;
+  width: 240px;
+}
+
+.my-tree-select__trigger {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  cursor: pointer;
+  transition: border-color var(--my-transition-duration);
+}
+
+.my-tree-select__trigger:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-tree-select--small .my-tree-select__trigger {
+  height: 28px;
+}
+.my-tree-select--large .my-tree-select__trigger {
+  height: 40px;
+}
+
+.my-tree-select.is-disabled .my-tree-select__trigger {
+  background: var(--my-fill-color-light);
+  cursor: not-allowed;
+}
+
+.my-tree-select__value {
+  flex: 1;
+  color: var(--my-text-color-regular);
+}
+
+.my-tree-select__placeholder {
+  flex: 1;
+  color: var(--my-text-color-secondary);
+}
+
+.my-tree-select__arrow {
+  color: var(--my-text-color-secondary);
+  transition: transform var(--my-transition-duration);
+}
+
+.my-tree-select__arrow.is-reverse {
+  transform: rotate(180deg);
+}
+
+.my-tree-select__clear {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  cursor: pointer;
+}
+
+.my-tree-select__panel {
+  min-width: 240px;
+  max-height: 300px;
+  overflow: auto;
+  padding: 8px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}

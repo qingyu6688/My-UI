@@ -1,0 +1,75 @@
+.my-time-select {
+  display: inline-block;
+  width: 160px;
+}
+
+.my-time-select__trigger {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  cursor: pointer;
+  transition: border-color var(--my-transition-duration);
+}
+
+.my-time-select__trigger:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-time-select--small .my-time-select__trigger {
+  height: 28px;
+}
+.my-time-select--large .my-time-select__trigger {
+  height: 40px;
+}
+
+.my-time-select.is-disabled .my-time-select__trigger {
+  background: var(--my-fill-color-light);
+  cursor: not-allowed;
+}
+
+.my-time-select__value {
+  flex: 1;
+  color: var(--my-text-color-regular);
+}
+
+.my-time-select__placeholder {
+  flex: 1;
+  color: var(--my-text-color-secondary);
+}
+
+.my-time-select__clear {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  cursor: pointer;
+}
+
+.my-time-select__panel {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 4px 0;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-time-select__option {
+  padding: 8px 14px;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-time-select__option:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-time-select__option.is-active {
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}

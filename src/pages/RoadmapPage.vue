@@ -3,8 +3,8 @@ import { CheckCircle2, CircleDashed, Clock3 } from 'lucide-vue-next'
 import { roadmapItems } from '../data/home'
 
 function iconName(status: string): typeof CheckCircle2 {
-  if (status === '本轮完成') return CheckCircle2
-  if (status === '下一步') return Clock3
+  if (status === '已完成') return CheckCircle2
+  if (status === '进行中') return Clock3
   return CircleDashed
 }
 </script>

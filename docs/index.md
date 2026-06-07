@@ -32,4 +32,4 @@ import App from './App.vue'
 createApp(App).use(MyUI).mount('#app')
 ```
 
-当前仓库还处于组件库建设阶段，目前统一导出 45 个组件。文档会随着组件 API 稳定逐步补齐更细的 Props、Events、Slots 表格。
+当前仓库还处于组件库建设阶段，目前源码层统一导出 75 个组件模块。文档会随着组件 API 稳定逐步补齐更细的 Props、Events、Slots 表格。

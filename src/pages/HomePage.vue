@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { ArrowRight, Boxes, CheckCircle2, Palette, Sparkles } from 'lucide-vue-next'
-import { componentGroups, themePresets } from '../data/home'
+import { componentCount, themePresets } from '../data/home'
 
 const router = useRouter()
 
-const totalComponents = computed(() =>
-  componentGroups.reduce((total, group) => total + group.items.length, 0),
-)
+const totalComponents = componentCount
 
 function go(path: string): void {
   void router.push(path)
@@ -44,7 +41,7 @@ function go(path: string): void {
           </span>
           <span>
             <Boxes />
-            {{ totalComponents }} 个组件入口
+            {{ totalComponents }} 个组件
           </span>
           <span>
             <Palette />

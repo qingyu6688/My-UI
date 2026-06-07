@@ -1,0 +1,77 @@
+.my-slider {
+  padding: 8px 0;
+}
+
+.my-slider__track {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--my-fill-color-light);
+  cursor: pointer;
+}
+
+.my-slider.is-disabled .my-slider__track {
+  cursor: not-allowed;
+}
+
+.my-slider__fill {
+  position: absolute;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--my-color-primary);
+}
+
+.my-slider__stop {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--my-border-color);
+  transform: translate(-50%, -50%);
+}
+
+.my-slider__thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--my-color-primary);
+  border-radius: 50%;
+  background: var(--my-bg-color);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  transition: box-shadow var(--my-transition-duration);
+}
+
+.my-slider__thumb:hover,
+.my-slider__thumb:focus-visible {
+  box-shadow: 0 0 0 6px var(--my-color-primary-light-7);
+  outline: none;
+}
+
+.my-slider.is-disabled .my-slider__thumb {
+  cursor: not-allowed;
+  border-color: var(--my-text-color-secondary);
+}
+
+.my-slider__tooltip {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 6px;
+  border-radius: var(--my-radius-small);
+  background: var(--my-text-color-primary);
+  color: var(--my-bg-color);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--my-transition-duration);
+  pointer-events: none;
+}
+
+.my-slider__thumb:hover .my-slider__tooltip,
+.my-slider__thumb:focus-visible .my-slider__tooltip {
+  opacity: 1;
+}

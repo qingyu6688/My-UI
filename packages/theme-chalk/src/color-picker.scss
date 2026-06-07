@@ -1,0 +1,104 @@
+.my-color-picker {
+  display: inline-block;
+}
+
+.my-color-picker__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.my-color-picker--small .my-color-picker__trigger {
+  width: 28px;
+  height: 28px;
+}
+
+.my-color-picker--large .my-color-picker__trigger {
+  width: 40px;
+  height: 40px;
+}
+
+.my-color-picker.is-disabled .my-color-picker__trigger {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.my-color-picker__empty {
+  color: var(--my-text-color-secondary);
+  font-size: 16px;
+}
+
+.my-color-picker__panel {
+  width: 240px;
+  padding: 12px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-color-picker__preview {
+  height: 40px;
+  border-radius: var(--my-radius-small);
+  border: 1px solid var(--my-border-color-light);
+}
+
+.my-color-picker__inputs {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.my-color-picker__inputs input[type='color'] {
+  width: 36px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: none;
+  cursor: pointer;
+}
+
+.my-color-picker__hex {
+  flex: 1;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  font: inherit;
+  outline: none;
+}
+
+.my-color-picker__hex:focus {
+  border-color: var(--my-color-primary);
+}
+
+.my-color-picker__predefine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.my-color-picker__swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--my-radius-small);
+  border: 1px solid var(--my-border-color-light);
+  cursor: pointer;
+}
+
+.my-color-picker__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}

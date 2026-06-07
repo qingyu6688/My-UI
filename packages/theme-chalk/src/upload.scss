@@ -1,0 +1,73 @@
+.my-upload__input {
+  display: none;
+}
+
+.my-upload__trigger {
+  display: inline-block;
+}
+
+.my-upload__dragger {
+  padding: 32px 16px;
+  border: 1px dashed var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--my-transition-duration), background var(--my-transition-duration);
+}
+
+.my-upload__dragger:hover,
+.my-upload__dragger.is-dragover {
+  border-color: var(--my-color-primary);
+  background: var(--my-color-primary-light-9);
+}
+
+.my-upload__dragger-text {
+  margin: 0;
+  color: var(--my-text-color-secondary);
+}
+
+.my-upload__dragger-text em {
+  color: var(--my-color-primary-active);
+  font-style: normal;
+}
+
+.my-upload__list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.my-upload__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: var(--my-radius-small);
+  color: var(--my-text-color-regular);
+  transition: background var(--my-transition-duration);
+}
+
+.my-upload__item:hover {
+  background: var(--my-fill-color-light);
+}
+
+.my-upload__item.is-fail .my-upload__item-name {
+  color: var(--my-color-danger);
+}
+
+.my-upload__item.is-success .my-upload__item-name {
+  color: var(--my-color-success);
+}
+
+.my-upload__item-remove {
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.my-upload__item-remove:hover {
+  color: var(--my-color-danger);
+}

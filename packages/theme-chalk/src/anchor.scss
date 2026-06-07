@@ -1,0 +1,25 @@
+.my-anchor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 2px solid var(--my-border-color-light);
+}
+
+.my-anchor__link {
+  padding: 4px 12px;
+  color: var(--my-text-color-regular);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: color var(--my-transition-duration), border-color var(--my-transition-duration);
+}
+
+.my-anchor__link:hover {
+  color: var(--my-color-primary-active);
+}
+
+.my-anchor__link.is-active {
+  color: var(--my-color-primary-active);
+  border-left-color: var(--my-color-primary);
+  font-weight: 600;
+}

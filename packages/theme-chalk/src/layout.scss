@@ -13,15 +13,15 @@
 
 @for $i from 0 through 24 {
   .my-col-#{$i} {
-    width: percentage(math.div($i, 24));
+    width: math.percentage(math.div($i, 24));
   }
   .my-col-offset-#{$i} {
-    margin-left: percentage(math.div($i, 24));
+    margin-left: math.percentage(math.div($i, 24));
   }
   .my-col-push-#{$i} {
-    left: percentage(math.div($i, 24));
+    left: math.percentage(math.div($i, 24));
   }
   .my-col-pull-#{$i} {
-    right: percentage(math.div($i, 24));
+    right: math.percentage(math.div($i, 24));
   }
 }

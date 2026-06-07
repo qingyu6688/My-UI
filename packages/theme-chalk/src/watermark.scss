@@ -1,0 +1,10 @@
+.my-watermark {
+  position: relative;
+}
+
+.my-watermark__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}

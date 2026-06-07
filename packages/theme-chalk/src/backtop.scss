@@ -1,0 +1,31 @@
+.my-backtop {
+  position: fixed;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--my-bg-color);
+  color: var(--my-color-primary-active);
+  font-size: 18px;
+  box-shadow: var(--my-shadow-light);
+  cursor: pointer;
+  z-index: 1000;
+  transition: color var(--my-transition-duration), background var(--my-transition-duration);
+}
+
+.my-backtop:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-backtop-fade-enter-active,
+.my-backtop-fade-leave-active {
+  transition: opacity var(--my-transition-duration);
+}
+
+.my-backtop-fade-enter-from,
+.my-backtop-fade-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,73 @@
+.my-calendar {
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+}
+
+.my-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-calendar__title {
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-calendar__nav button {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+}
+
+.my-calendar__nav button:hover {
+  color: var(--my-color-primary-active);
+  border-color: var(--my-color-primary);
+}
+
+.my-calendar__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.my-calendar__table th {
+  padding: 8px;
+  color: var(--my-text-color-secondary);
+  font-weight: 500;
+  font-size: var(--my-font-size-small);
+}
+
+.my-calendar__cell {
+  height: 40px;
+  text-align: center;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background var(--my-transition-duration);
+}
+
+.my-calendar__cell:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-calendar__cell.is-other-month {
+  color: var(--my-text-color-secondary);
+  opacity: 0.5;
+}
+
+.my-calendar__cell.is-today {
+  color: var(--my-color-primary-active);
+  font-weight: 600;
+}
+
+.my-calendar__cell.is-selected {
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}

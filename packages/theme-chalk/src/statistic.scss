@@ -1,0 +1,23 @@
+.my-statistic__title {
+  margin-bottom: 4px;
+  color: var(--my-text-color-secondary);
+  font-size: var(--my-font-size-base);
+}
+
+.my-statistic__content {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--my-text-color-primary);
+}
+
+.my-statistic__value {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.my-statistic__prefix,
+.my-statistic__suffix {
+  font-size: var(--my-font-size-base);
+  color: var(--my-text-color-secondary);
+}
