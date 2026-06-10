@@ -6,71 +6,182 @@ import DataDemos from '../components/demos/DataDemos.vue'
 import NavDemos from '../components/demos/NavDemos.vue'
 import FeedbackDemos from '../components/demos/FeedbackDemos.vue'
 import OtherDemos from '../components/demos/OtherDemos.vue'
+import { useSiteLocale } from '../composables/use-site-locale'
+
+interface ComponentNavItem {
+  id: string
+  zh: string
+  en: string
+}
 
 interface Category {
   key: string
   label: string
+  labelEn: string
+  description: string
+  descriptionEn: string
   component: typeof BasicDemos
-  items: string[]
+  items: ComponentNavItem[]
 }
 
 const categories: Category[] = [
   {
     key: 'basic',
     label: '基础组件',
+    labelEn: 'Basic',
+    description: '承载页面搭建中最常用的按钮、图标、布局、文本和间距能力。',
+    descriptionEn: 'Core building blocks for buttons, icons, layout, text and spacing.',
     component: BasicDemos,
-    items: ['Button', 'Icon', 'Text', 'Typography', 'Link', 'Space', 'Divider', 'Scrollbar'],
+    items: [
+      { id: 'Button', zh: '按钮', en: 'Button' },
+      { id: 'Icon', zh: '图标', en: 'Icon' },
+      { id: 'Layout', zh: '布局', en: 'Layout' },
+      { id: 'Container', zh: '布局容器', en: 'Container' },
+      { id: 'Text', zh: '文本', en: 'Text' },
+      { id: 'Typography', zh: '排版', en: 'Typography' },
+      { id: 'Link', zh: '链接', en: 'Link' },
+      { id: 'Space', zh: '间距', en: 'Space' },
+      { id: 'Divider', zh: '分割线', en: 'Divider' },
+      { id: 'Scrollbar', zh: '滚动条', en: 'Scrollbar' },
+    ],
   },
   {
     key: 'form',
     label: '表单组件',
+    labelEn: 'Form',
+    description: '输入、选择、上传、校验和复杂表单控件，覆盖后台系统高频录入场景。',
+    descriptionEn: 'Inputs, pickers, upload, validation and advanced form controls for admin workflows.',
     component: FormDemos,
     items: [
-      'Input', 'InputNumber', 'Radio', 'Checkbox', 'Switch', 'Select', 'Slider', 'Rate',
-      'Segmented', 'ColorPicker', 'TimePicker', 'DatePicker', 'DateTimePicker', 'TimeSelect',
-      'Cascader', 'TreeSelect', 'Transfer', 'Upload', 'Autocomplete', 'InputTag', 'InputOTP',
-      'Mention', 'Form',
+      { id: 'Input', zh: '输入框', en: 'Input' },
+      { id: 'InputNumber', zh: '数字输入框', en: 'Input Number' },
+      { id: 'Radio', zh: '单选框', en: 'Radio' },
+      { id: 'Checkbox', zh: '多选框', en: 'Checkbox' },
+      { id: 'Switch', zh: '开关', en: 'Switch' },
+      { id: 'Select', zh: '选择器', en: 'Select' },
+      { id: 'Slider', zh: '滑块', en: 'Slider' },
+      { id: 'Rate', zh: '评分', en: 'Rate' },
+      { id: 'Segmented', zh: '分段控制器', en: 'Segmented' },
+      { id: 'ColorPicker', zh: '颜色选择器', en: 'Color Picker' },
+      { id: 'TimePicker', zh: '时间选择器', en: 'Time Picker' },
+      { id: 'DatePicker', zh: '日期选择器', en: 'Date Picker' },
+      { id: 'DateTimePicker', zh: '日期时间选择器', en: 'DateTime Picker' },
+      { id: 'TimeSelect', zh: '时间选择', en: 'Time Select' },
+      { id: 'Cascader', zh: '级联选择器', en: 'Cascader' },
+      { id: 'TreeSelect', zh: '树形选择', en: 'Tree Select' },
+      { id: 'Transfer', zh: '穿梭框', en: 'Transfer' },
+      { id: 'Upload', zh: '上传', en: 'Upload' },
+      { id: 'Autocomplete', zh: '自动补全输入框', en: 'Autocomplete' },
+      { id: 'InputTag', zh: '标签输入', en: 'Input Tag' },
+      { id: 'InputOTP', zh: '验证码输入', en: 'Input OTP' },
+      { id: 'Mention', zh: '提及', en: 'Mention' },
+      { id: 'Form', zh: '表单', en: 'Form' },
     ],
   },
   {
     key: 'data',
     label: '数据展示',
+    labelEn: 'Data',
+    description: '列表、表格、标签、骨架屏和状态类内容展示，适合数据密集页面。',
+    descriptionEn: 'Tables, lists, tags, placeholders and status displays for data-heavy pages.',
     component: DataDemos,
     items: [
-      'Tag', 'Badge', 'Avatar', 'Progress', 'Card', 'Descriptions', 'Empty', 'Skeleton',
-      'Image', 'Table', 'Pagination', 'Collapse', 'Timeline', 'Statistic', 'Tree', 'Carousel',
-      'Calendar', 'VirtualList',
+      { id: 'Tag', zh: '标签', en: 'Tag' },
+      { id: 'Badge', zh: '徽章', en: 'Badge' },
+      { id: 'Avatar', zh: '头像', en: 'Avatar' },
+      { id: 'Progress', zh: '进度条', en: 'Progress' },
+      { id: 'Card', zh: '卡片', en: 'Card' },
+      { id: 'Descriptions', zh: '描述列表', en: 'Descriptions' },
+      { id: 'Empty', zh: '空状态', en: 'Empty' },
+      { id: 'Skeleton', zh: '骨架屏', en: 'Skeleton' },
+      { id: 'Image', zh: '图片', en: 'Image' },
+      { id: 'Table', zh: '表格', en: 'Table' },
+      { id: 'Pagination', zh: '分页', en: 'Pagination' },
+      { id: 'Collapse', zh: '折叠面板', en: 'Collapse' },
+      { id: 'Timeline', zh: '时间线', en: 'Timeline' },
+      { id: 'Statistic', zh: '统计数值', en: 'Statistic' },
+      { id: 'Tree', zh: '树形控件', en: 'Tree' },
+      { id: 'Carousel', zh: '走马灯', en: 'Carousel' },
+      { id: 'Calendar', zh: '日历', en: 'Calendar' },
+      { id: 'VirtualList', zh: '虚拟列表', en: 'Virtual List' },
     ],
   },
   {
     key: 'nav',
     label: '导航组件',
+    labelEn: 'Navigation',
+    description: '菜单、标签页、面包屑、步骤条和锚点，用来表达页面结构与位置。',
+    descriptionEn: 'Menus, tabs, breadcrumbs, steps and anchors for structure and navigation.',
     component: NavDemos,
-    items: ['Menu', 'Tabs', 'Breadcrumb', 'Steps', 'Dropdown', 'PageHeader', 'Anchor', 'Backtop / Affix'],
+    items: [
+      { id: 'Menu', zh: '菜单', en: 'Menu' },
+      { id: 'Tabs', zh: '标签页', en: 'Tabs' },
+      { id: 'Breadcrumb', zh: '面包屑', en: 'Breadcrumb' },
+      { id: 'Steps', zh: '步骤条', en: 'Steps' },
+      { id: 'Dropdown', zh: '下拉菜单', en: 'Dropdown' },
+      { id: 'PageHeader', zh: '页头', en: 'Page Header' },
+      { id: 'Anchor', zh: '锚点', en: 'Anchor' },
+      { id: 'Backtop / Affix', zh: '回到顶部 / 固钉', en: 'Backtop / Affix' },
+    ],
   },
   {
     key: 'feedback',
     label: '反馈组件',
+    labelEn: 'Feedback',
+    description: '提示、弹层、加载、结果页和引导流程，统一处理操作反馈。',
+    descriptionEn: 'Alerts, overlays, loading, result states and tours for consistent feedback.',
     component: FeedbackDemos,
     items: [
-      'Alert', 'Tooltip', 'Popover', 'Popconfirm', 'Dialog', 'Drawer', 'Message', 'MessageBox',
-      'Loading', 'Result', 'Tour',
+      { id: 'Alert', zh: '提示', en: 'Alert' },
+      { id: 'Tooltip', zh: '文字提示', en: 'Tooltip' },
+      { id: 'Popover', zh: '弹出框', en: 'Popover' },
+      { id: 'Popconfirm', zh: '气泡确认框', en: 'Popconfirm' },
+      { id: 'Dialog', zh: '对话框', en: 'Dialog' },
+      { id: 'Drawer', zh: '抽屉', en: 'Drawer' },
+      { id: 'Message', zh: '消息提示', en: 'Message' },
+      { id: 'MessageBox', zh: '消息弹出框', en: 'Message Box' },
+      { id: 'Loading', zh: '加载', en: 'Loading' },
+      { id: 'Result', zh: '结果', en: 'Result' },
+      { id: 'Tour', zh: '漫游引导', en: 'Tour' },
     ],
   },
   {
     key: 'other',
     label: '其他组件',
+    labelEn: 'Others',
+    description: '水印、分隔面板、全局配置和无限滚动等补充能力。',
+    descriptionEn: 'Watermark, split panels, global config and infinite scroll utilities.',
     component: OtherDemos,
-    items: ['Watermark', 'Splitter', 'ConfigProvider', 'InfiniteScroll'],
+    items: [
+      { id: 'Watermark', zh: '水印', en: 'Watermark' },
+      { id: 'Splitter', zh: '分隔面板', en: 'Splitter' },
+      { id: 'ConfigProvider', zh: '全局配置', en: 'Config Provider' },
+      { id: 'InfiniteScroll', zh: '无限滚动', en: 'Infinite Scroll' },
+    ],
   },
 ]
 
 const activeKey = ref('basic')
-const activeAnchor = ref('')
+const activeAnchor = ref(categories[0].items[0].id)
+const { isZh } = useSiteLocale()
 
 const activeCategory = computed(
   () => categories.find((category) => category.key === activeKey.value) ?? categories[0],
 )
+const pageTitle = computed(() => (isZh.value ? activeCategory.value.label : activeCategory.value.labelEn))
+const pageDescription = computed(() =>
+  isZh.value ? activeCategory.value.description : activeCategory.value.descriptionEn,
+)
+const tocTitle = computed(() => (isZh.value ? '本页组件' : 'On this page'))
+const pageEyebrow = computed(() => (isZh.value ? '组件文档' : 'Components'))
+
+function categoryLabel(category: Category): string {
+  return isZh.value ? category.label : category.labelEn
+}
+
+function itemLabel(item: ComponentNavItem): string {
+  return isZh.value ? `${item.id} ${item.zh}` : item.en
+}
 
 function scrollToComponent(name: string): void {
   void nextTick(() => {
@@ -80,6 +191,16 @@ function scrollToComponent(name: string): void {
       activeAnchor.value = name
     }
   })
+}
+
+function selectCategory(categoryKey: string): void {
+  const category = categories.find((item) => item.key === categoryKey)
+  const firstItem = category?.items[0]
+  if (!category || !firstItem) return
+
+  activeKey.value = category.key
+  activeAnchor.value = firstItem.id
+  scrollToComponent(firstItem.id)
 }
 
 function selectComponent(categoryKey: string, name: string): void {
@@ -96,16 +217,24 @@ function selectComponent(categoryKey: string, name: string): void {
     <aside class="docs-sidebar">
       <nav class="docs-sidebar__inner">
         <div v-for="category in categories" :key="category.key" class="docs-sidebar__group">
-          <p class="docs-sidebar__title">{{ category.label }}</p>
+          <button
+            type="button"
+            class="docs-sidebar__title"
+            :class="{ 'is-active': activeKey === category.key }"
+            @click="selectCategory(category.key)"
+          >
+            <span>{{ categoryLabel(category) }}</span>
+            <small>{{ category.items.length }}</small>
+          </button>
           <button
             v-for="item in category.items"
-            :key="item"
+            :key="item.id"
             type="button"
             class="docs-sidebar__link"
-            :class="{ 'is-active': activeKey === category.key && activeAnchor === item }"
-            @click="selectComponent(category.key, item)"
+            :class="{ 'is-active': activeKey === category.key && activeAnchor === item.id }"
+            @click="selectComponent(category.key, item.id)"
           >
-            {{ item }}
+            {{ itemLabel(item) }}
           </button>
         </div>
       </nav>
@@ -115,9 +244,9 @@ function selectComponent(categoryKey: string, name: string): void {
     <div class="docs-main">
       <div class="docs-article">
         <header class="docs-article__head">
-          <p class="eyebrow">Components</p>
-          <h1>{{ activeCategory.label }}</h1>
-          <p>覆盖该分类下全部组件的真实渲染示例，跟随当前主题色实时变化。</p>
+          <p class="eyebrow">{{ pageEyebrow }}</p>
+          <h1>{{ pageTitle }}</h1>
+          <p>{{ pageDescription }}</p>
         </header>
 
         <component :is="activeCategory.component" />
@@ -126,15 +255,15 @@ function selectComponent(categoryKey: string, name: string): void {
 
     <!-- 右侧：本页 TOC -->
     <aside class="docs-toc">
-      <p class="docs-toc__title">本页组件</p>
+      <p class="docs-toc__title">{{ tocTitle }}</p>
       <a
         v-for="item in activeCategory.items"
-        :key="item"
+        :key="item.id"
         class="docs-toc__link"
-        :class="{ 'is-active': activeAnchor === item }"
-        @click="scrollToComponent(item)"
+        :class="{ 'is-active': activeAnchor === item.id }"
+        @click="scrollToComponent(item.id)"
       >
-        {{ item }}
+        {{ itemLabel(item) }}
       </a>
     </aside>
 

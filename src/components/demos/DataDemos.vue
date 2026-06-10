@@ -1,187 +1,187 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-import DemoBlock from './DemoBlock.vue'
-
-const state = reactive({
-  collapse: ['1'],
-  carousel: 0,
-  calendar: new Date(),
-})
-
-const tableData = [
-  { id: 1, name: '苹果', price: 5, category: 'fruit' },
-  { id: 2, name: '香蕉', price: 3, category: 'fruit' },
-  { id: 3, name: '胡萝卜', price: 2, category: 'vegetable' },
-]
-
-const treeData = [
-  {
-    key: '1',
-    label: '设计',
-    children: [
-      { key: '1-1', label: '视觉' },
-      { key: '1-2', label: '交互' },
-    ],
-  },
-  { key: '2', label: '研发' },
-]
-
-const virtualItems = Array.from({ length: 1000 }, (_, i) => `列表项 ${i + 1}`)
+import DemoBox from './DemoBox.vue'
+import TagDemo from '../../demo/data/TagDemo.vue'
+import TagSrc from '../../demo/data/TagDemo.vue?raw'
+import BadgeDemo from '../../demo/data/BadgeDemo.vue'
+import BadgeSrc from '../../demo/data/BadgeDemo.vue?raw'
+import AvatarDemo from '../../demo/data/AvatarDemo.vue'
+import AvatarSrc from '../../demo/data/AvatarDemo.vue?raw'
+import ProgressDemo from '../../demo/data/ProgressDemo.vue'
+import ProgressSrc from '../../demo/data/ProgressDemo.vue?raw'
+import CardDemo from '../../demo/data/CardDemo.vue'
+import CardSrc from '../../demo/data/CardDemo.vue?raw'
+import DescriptionsDemo from '../../demo/data/DescriptionsDemo.vue'
+import DescriptionsSrc from '../../demo/data/DescriptionsDemo.vue?raw'
+import EmptyDemo from '../../demo/data/EmptyDemo.vue'
+import EmptySrc from '../../demo/data/EmptyDemo.vue?raw'
+import SkeletonDemo from '../../demo/data/SkeletonDemo.vue'
+import SkeletonSrc from '../../demo/data/SkeletonDemo.vue?raw'
+import ImageDemo from '../../demo/data/ImageDemo.vue'
+import ImageSrc from '../../demo/data/ImageDemo.vue?raw'
+import TableDemo from '../../demo/data/TableDemo.vue'
+import TableSrc from '../../demo/data/TableDemo.vue?raw'
+import PaginationDemo from '../../demo/data/PaginationDemo.vue'
+import PaginationSrc from '../../demo/data/PaginationDemo.vue?raw'
+import CollapseDemo from '../../demo/data/CollapseDemo.vue'
+import CollapseSrc from '../../demo/data/CollapseDemo.vue?raw'
+import TimelineDemo from '../../demo/data/TimelineDemo.vue'
+import TimelineSrc from '../../demo/data/TimelineDemo.vue?raw'
+import StatisticDemo from '../../demo/data/StatisticDemo.vue'
+import StatisticSrc from '../../demo/data/StatisticDemo.vue?raw'
+import TreeDemo from '../../demo/data/TreeDemo.vue'
+import TreeSrc from '../../demo/data/TreeDemo.vue?raw'
+import CarouselDemo from '../../demo/data/CarouselDemo.vue'
+import CarouselSrc from '../../demo/data/CarouselDemo.vue?raw'
+import CalendarDemo from '../../demo/data/CalendarDemo.vue'
+import CalendarSrc from '../../demo/data/CalendarDemo.vue?raw'
+import VirtualListDemo from '../../demo/data/VirtualListDemo.vue'
+import VirtualListSrc from '../../demo/data/VirtualListDemo.vue?raw'
 </script>
 
 <template>
   <div class="demo-group">
-    <DemoBlock name="Tag" title="Tag 标签" description="类型与效果。">
-      <my-space wrap>
-        <my-tag type="primary">主要</my-tag>
-        <my-tag type="success">成功</my-tag>
-        <my-tag type="warning">警告</my-tag>
-        <my-tag type="danger">危险</my-tag>
-        <my-tag type="primary" effect="dark">深色</my-tag>
-        <my-tag round>圆角</my-tag>
-        <my-tag closable>可关闭</my-tag>
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Tag" title="Tag 标签" title-en="Tag"
+      description="类型与效果。" description-en="Types and effects."
+      :source="TagSrc" path="src/demo/data/TagDemo.vue"
+    >
+      <TagDemo />
+    </DemoBox>
 
-    <DemoBlock name="Badge" title="Badge 徽章" description="数字、圆点与最大值。">
-      <my-space :size="24" align="center">
-        <my-badge :value="12"><my-button>消息</my-button></my-badge>
-        <my-badge :value="200" :max="99"><my-button>通知</my-button></my-badge>
-        <my-badge is-dot><my-button>动态</my-button></my-badge>
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Badge" title="Badge 徽章" title-en="Badge"
+      description="数字、圆点与最大值。" description-en="Number, dot and max."
+      :source="BadgeSrc" path="src/demo/data/BadgeDemo.vue"
+    >
+      <BadgeDemo />
+    </DemoBox>
 
-    <DemoBlock name="Avatar" title="Avatar 头像" description="文字、形状与尺寸。">
-      <my-space align="center">
-        <my-avatar alt="张" />
-        <my-avatar shape="square" alt="李" />
-        <my-avatar size="large" alt="王" />
-        <my-avatar size="small" alt="赵" />
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Avatar" title="Avatar 头像" title-en="Avatar"
+      description="文字、形状与尺寸。" description-en="Text, shape and size."
+      :source="AvatarSrc" path="src/demo/data/AvatarDemo.vue"
+    >
+      <AvatarDemo />
+    </DemoBox>
 
-    <DemoBlock name="Progress" title="Progress 进度条" description="线形与环形。">
-      <div style="max-width: 320px;">
-        <my-progress :percentage="40" />
-        <my-progress :percentage="70" status="success" style="margin-top: 8px;" />
-      </div>
-      <my-space style="margin-top: 12px;">
-        <my-progress type="circle" :percentage="65" />
-        <my-progress type="circle" :percentage="100" status="success" />
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Progress" title="Progress 进度条" title-en="Progress"
+      description="线形与环形。" description-en="Line and circle."
+      :source="ProgressSrc" path="src/demo/data/ProgressDemo.vue"
+    >
+      <ProgressDemo />
+    </DemoBox>
 
-    <DemoBlock name="Card" title="Card 卡片" description="头部、内容与底部。">
-      <my-card header="卡片标题" style="max-width: 320px;">
-        卡片内容区域，可承载任意信息。
-        <template #footer>
-          <my-button type="primary" size="small">操作</my-button>
-        </template>
-      </my-card>
-    </DemoBlock>
+    <DemoBox
+      name="Card" title="Card 卡片" title-en="Card"
+      description="头部、内容与底部。" description-en="Header, body and footer."
+      :source="CardSrc" path="src/demo/data/CardDemo.vue"
+    >
+      <CardDemo />
+    </DemoBox>
 
-    <DemoBlock name="Descriptions" title="Descriptions 描述列表" description="带边框的键值展示。">
-      <my-descriptions title="用户信息" :column="2" border>
-        <my-descriptions-item label="姓名">张三</my-descriptions-item>
-        <my-descriptions-item label="城市">北京</my-descriptions-item>
-        <my-descriptions-item label="邮箱">zhangsan@example.com</my-descriptions-item>
-        <my-descriptions-item label="电话">138-0000-0000</my-descriptions-item>
-      </my-descriptions>
-    </DemoBlock>
+    <DemoBox
+      name="Descriptions" title="Descriptions 描述列表" title-en="Descriptions"
+      description="带边框的键值展示。" description-en="Bordered key-value listing."
+      :source="DescriptionsSrc" path="src/demo/data/DescriptionsDemo.vue"
+    >
+      <DescriptionsDemo />
+    </DemoBox>
 
-    <DemoBlock name="Empty" title="Empty 空状态" description="默认插画与操作。">
-      <my-empty description="暂无数据">
-        <my-button type="primary" size="small">新建</my-button>
-      </my-empty>
-    </DemoBlock>
+    <DemoBox
+      name="Empty" title="Empty 空状态" title-en="Empty"
+      description="默认插画与操作。" description-en="Illustration and actions."
+      :source="EmptySrc" path="src/demo/data/EmptyDemo.vue"
+    >
+      <EmptyDemo />
+    </DemoBox>
 
-    <DemoBlock name="Skeleton" title="Skeleton 骨架屏" description="加载占位。">
-      <my-skeleton :rows="3" avatar />
-    </DemoBlock>
+    <DemoBox
+      name="Skeleton" title="Skeleton 骨架屏" title-en="Skeleton"
+      description="加载占位。" description-en="Loading placeholder."
+      :source="SkeletonSrc" path="src/demo/data/SkeletonDemo.vue"
+    >
+      <SkeletonDemo />
+    </DemoBox>
 
-    <DemoBlock name="Image" title="Image 图片" description="占位与失败回退。">
-      <my-image
-        src="https://element-plus.org/images/element-plus-logo.svg"
-        :width="160"
-        :height="80"
-        fit="contain"
-      />
-    </DemoBlock>
+    <DemoBox
+      name="Image" title="Image 图片" title-en="Image"
+      description="占位与失败回退。" description-en="Placeholder and fallback."
+      :source="ImageSrc" path="src/demo/data/ImageDemo.vue"
+    >
+      <ImageDemo />
+    </DemoBox>
 
-    <DemoBlock name="Table" title="Table 表格" description="排序、筛选与斑马纹。">
-      <my-table :data="tableData" row-key="id" stripe border>
-        <my-table-column prop="id" label="ID" width="70" />
-        <my-table-column prop="name" label="名称" />
-        <my-table-column prop="price" label="价格" align="right" sortable />
-        <my-table-column
-          prop="category"
-          label="分类"
-          :filters="[
-            { text: '水果', value: 'fruit' },
-            { text: '蔬菜', value: 'vegetable' },
-          ]"
-        />
-      </my-table>
-    </DemoBlock>
+    <DemoBox
+      name="Table" title="Table 表格" title-en="Table"
+      description="排序、筛选与斑马纹。" description-en="Sort, filter and stripe."
+      :source="TableSrc" path="src/demo/data/TableDemo.vue"
+    >
+      <TableDemo />
+    </DemoBox>
 
-    <DemoBlock name="Pagination" title="Pagination 分页" description="页码与跳转。">
-      <my-pagination :total="200" :page-size="10" :current-page="1" />
-    </DemoBlock>
+    <DemoBox
+      name="Pagination" title="Pagination 分页" title-en="Pagination"
+      description="页码与跳转。" description-en="Pages and jumper."
+      :source="PaginationSrc" path="src/demo/data/PaginationDemo.vue"
+    >
+      <PaginationDemo />
+    </DemoBox>
 
-    <DemoBlock name="Collapse" title="Collapse 折叠面板" description="展开与收起。">
-      <my-collapse v-model="state.collapse">
-        <my-collapse-item name="1" title="什么是 My UI">
-          基于 Vue 3 的鼠尾草浅黄主题组件库。
-        </my-collapse-item>
-        <my-collapse-item name="2" title="如何使用">
-          安装后通过插件方式全量引入，或按需导入单个组件。
-        </my-collapse-item>
-      </my-collapse>
-    </DemoBlock>
+    <DemoBox
+      name="Collapse" title="Collapse 折叠面板" title-en="Collapse"
+      description="展开与收起。" description-en="Expand and collapse."
+      :source="CollapseSrc" path="src/demo/data/CollapseDemo.vue"
+    >
+      <CollapseDemo />
+    </DemoBox>
 
-    <DemoBlock name="Timeline" title="Timeline 时间线" description="节点与时间戳。">
-      <my-timeline>
-        <my-timeline-item timestamp="2026-01-01" type="success">项目创建</my-timeline-item>
-        <my-timeline-item timestamp="2026-03-01" type="primary">完成 P0 组件</my-timeline-item>
-        <my-timeline-item timestamp="2026-06-01">完成全部组件</my-timeline-item>
-      </my-timeline>
-    </DemoBlock>
+    <DemoBox
+      name="Timeline" title="Timeline 时间线" title-en="Timeline"
+      description="节点与时间戳。" description-en="Nodes with timestamps."
+      :source="TimelineSrc" path="src/demo/data/TimelineDemo.vue"
+    >
+      <TimelineDemo />
+    </DemoBox>
 
-    <DemoBlock name="Statistic" title="Statistic 统计数值" description="千分位与前后缀。">
-      <my-space :size="48">
-        <my-statistic title="活跃用户" :value="172800" />
-        <my-statistic title="转化率" :value="92.6" :precision="1" suffix="%" />
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Statistic" title="Statistic 统计数值" title-en="Statistic"
+      description="千分位与前后缀。" description-en="Grouping and affix."
+      :source="StatisticSrc" path="src/demo/data/StatisticDemo.vue"
+    >
+      <StatisticDemo />
+    </DemoBox>
 
-    <DemoBlock name="Tree" title="Tree 树形控件" description="展开、选择与勾选。">
-      <my-tree :data="treeData" show-checkbox default-expand-all />
-    </DemoBlock>
+    <DemoBox
+      name="Tree" title="Tree 树形控件" title-en="Tree"
+      description="展开、选择与勾选。" description-en="Expand, select and check."
+      :source="TreeSrc" path="src/demo/data/TreeDemo.vue"
+    >
+      <TreeDemo />
+    </DemoBox>
 
-    <DemoBlock name="Carousel" title="Carousel 走马灯" description="自动轮播。">
-      <my-carousel v-model="state.carousel" height="140px">
-        <my-carousel-item>
-          <div class="demo-carousel-slide" style="background: var(--my-color-primary-light-5);">第一页</div>
-        </my-carousel-item>
-        <my-carousel-item>
-          <div class="demo-carousel-slide" style="background: var(--my-color-secondary-light-5);">第二页</div>
-        </my-carousel-item>
-        <my-carousel-item>
-          <div class="demo-carousel-slide" style="background: var(--my-color-accent-light-5);">第三页</div>
-        </my-carousel-item>
-      </my-carousel>
-    </DemoBlock>
+    <DemoBox
+      name="Carousel" title="Carousel 走马灯" title-en="Carousel"
+      description="自动轮播。" description-en="Autoplay slides."
+      :source="CarouselSrc" path="src/demo/data/CarouselDemo.vue"
+    >
+      <CarouselDemo />
+    </DemoBox>
 
-    <DemoBlock name="Calendar" title="Calendar 日历" description="月视图选择。">
-      <div style="max-width: 360px;">
-        <my-calendar v-model="state.calendar" />
-      </div>
-    </DemoBlock>
+    <DemoBox
+      name="Calendar" title="Calendar 日历" title-en="Calendar"
+      description="月视图选择。" description-en="Month-view picker."
+      :source="CalendarSrc" path="src/demo/data/CalendarDemo.vue"
+    >
+      <CalendarDemo />
+    </DemoBox>
 
-    <DemoBlock name="VirtualList" title="VirtualList 虚拟列表" description="千条数据仅渲染可视区。">
-      <my-virtual-list :items="virtualItems" :item-height="36" :height="220">
-        <template #default="{ item }">{{ item }}</template>
-      </my-virtual-list>
-    </DemoBlock>
+    <DemoBox
+      name="VirtualList" title="VirtualList 虚拟列表" title-en="VirtualList"
+      description="千条数据仅渲染可视区。" description-en="Renders only visible items for 1k+ data."
+      :source="VirtualListSrc" path="src/demo/data/VirtualListDemo.vue"
+    >
+      <VirtualListDemo />
+    </DemoBox>
   </div>
 </template>

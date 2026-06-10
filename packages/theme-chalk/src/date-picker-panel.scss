@@ -1,0 +1,59 @@
+.my-date-picker-panel {
+  width: 280px;
+  padding: 12px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+}
+
+.my-date-picker-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-date-picker-panel__header button {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--my-text-color-regular);
+}
+
+.my-date-picker-panel__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.my-date-picker-panel__table th {
+  padding: 4px;
+  color: var(--my-text-color-secondary);
+  font-weight: 500;
+  font-size: var(--my-font-size-small);
+}
+
+.my-date-picker-panel__cell {
+  height: 32px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--my-radius-small);
+  color: var(--my-text-color-regular);
+}
+
+.my-date-picker-panel__cell:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-date-picker-panel__cell.is-other-month {
+  color: var(--my-text-color-secondary);
+  opacity: 0.5;
+}
+
+.my-date-picker-panel__cell.is-selected {
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+}

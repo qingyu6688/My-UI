@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useSize } from '../../../hooks/use-config'
 import type { SwitchEmits, SwitchProps } from './switch'
 
 defineOptions({
@@ -14,9 +15,11 @@ const props = withDefaults(defineProps<SwitchProps>(), {
   inactiveText: '',
   disabled: false,
   loading: false,
-  size: 'default',
+  size: undefined,
   name: undefined,
 })
+
+const actualSize = useSize(props)
 
 const emit = defineEmits<SwitchEmits>()
 
@@ -42,7 +45,7 @@ function handleKeydown(event: KeyboardEvent): void {
     type="button"
     class="my-switch"
     :class="[
-      `my-switch--${size}`,
+      `my-switch--${actualSize}`,
       {
         'is-checked': checked,
         'is-disabled': disabled,

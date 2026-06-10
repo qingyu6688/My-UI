@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
+import { useSize } from '../../../hooks/use-config'
+import { formContextKey } from '../../form/src/form'
 import type { InputNumberEmits, InputNumberProps } from './input-number'
 
 defineOptions({
@@ -12,7 +14,7 @@ const props = withDefaults(defineProps<InputNumberProps>(), {
   max: Infinity,
   step: 1,
   precision: undefined,
-  size: 'default',
+  size: undefined,
   disabled: false,
   readonly: false,
   placeholder: '',
@@ -20,6 +22,9 @@ const props = withDefaults(defineProps<InputNumberProps>(), {
   name: undefined,
   id: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<InputNumberEmits>()
 
@@ -120,7 +125,7 @@ function handleKeydown(event: KeyboardEvent): void {
   <div
     class="my-input-number"
     :class="[
-      `my-input-number--${size}`,
+      `my-input-number--${actualSize}`,
       {
         'is-disabled': disabled,
         'is-without-controls': !controls,

@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': resolve(__dirname, 'src'),
         '@my-ui': resolve(__dirname, 'packages'),
+        ...(isLib ? {} : { vue: 'vue/dist/vue.esm-bundler.js' }),
       },
     },
     build: isLib

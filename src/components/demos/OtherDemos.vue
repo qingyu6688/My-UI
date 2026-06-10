@@ -1,39 +1,63 @@
 <script setup lang="ts">
-import DemoBlock from './DemoBlock.vue'
+import DemoBox from './DemoBox.vue'
+import WatermarkDemo from '../../demo/other/WatermarkDemo.vue'
+import WatermarkSrc from '../../demo/other/WatermarkDemo.vue?raw'
+import SplitterDemo from '../../demo/other/SplitterDemo.vue'
+import SplitterSrc from '../../demo/other/SplitterDemo.vue?raw'
+import ConfigProviderDemo from '../../demo/other/ConfigProviderDemo.vue'
+import ConfigProviderSrc from '../../demo/other/ConfigProviderDemo.vue?raw'
+import InfiniteScrollDemo from '../../demo/other/InfiniteScrollDemo.vue'
+import InfiniteScrollSrc from '../../demo/other/InfiniteScrollDemo.vue?raw'
 </script>
 
 <template>
   <div class="demo-group">
-    <DemoBlock name="Watermark" title="Watermark 水印" description="平铺防截图水印。">
-      <my-watermark content="My UI" :font="{ color: 'rgba(38,51,43,0.12)', fontSize: 15 }">
-        <div style="height: 160px; border: 1px solid var(--my-border-color-light); border-radius: 8px;" />
-      </my-watermark>
-    </DemoBlock>
+    <DemoBox
+      name="Watermark"
+      title="Watermark 水印"
+      title-en="Watermark"
+      description="平铺防截图水印。"
+      description-en="Tiled watermark for screenshots."
+      :source="WatermarkSrc"
+      path="src/demo/other/WatermarkDemo.vue"
+    >
+      <WatermarkDemo />
+    </DemoBox>
 
-    <DemoBlock name="Splitter" title="Splitter 分隔面板" description="拖拽中间分隔条调整比例。">
-      <div style="height: 160px; border: 1px solid var(--my-border-color-light); border-radius: 8px; overflow: hidden;">
-        <my-splitter :initial="40">
-          <template #start>
-            <div style="padding: 12px;">左侧面板</div>
-          </template>
-          <template #end>
-            <div style="padding: 12px;">右侧面板</div>
-          </template>
-        </my-splitter>
-      </div>
-    </DemoBlock>
+    <DemoBox
+      name="Splitter"
+      title="Splitter 分隔面板"
+      title-en="Splitter"
+      description="拖拽中间分隔条调整比例。"
+      description-en="Drag the bar to resize panels."
+      :source="SplitterSrc"
+      path="src/demo/other/SplitterDemo.vue"
+    >
+      <SplitterDemo />
+    </DemoBox>
 
-    <DemoBlock name="ConfigProvider" title="ConfigProvider 全局配置" description="统一注入尺寸等配置。">
-      <my-config-provider size="large">
-        <my-space>
-          <my-button type="primary">大号按钮</my-button>
-          <my-input placeholder="大号输入" style="width: 200px;" />
-        </my-space>
-      </my-config-provider>
-    </DemoBlock>
+    <DemoBox
+      name="ConfigProvider"
+      title="ConfigProvider 全局配置"
+      title-en="ConfigProvider"
+      description="统一注入尺寸等配置。"
+      description-en="Inject namespace, size and locale."
+      :source="ConfigProviderSrc"
+      path="src/demo/other/ConfigProviderDemo.vue"
+    >
+      <ConfigProviderDemo />
+    </DemoBox>
 
-    <DemoBlock name="InfiniteScroll" title="InfiniteScroll 无限滚动" description="滚动到底部自动加载（指令）。">
-      <my-text type="info">通过 v-infinite-scroll 指令在滚动容器触底时触发加载回调。</my-text>
-    </DemoBlock>
+    <DemoBox
+      name="InfiniteScroll"
+      title="InfiniteScroll 无限滚动"
+      title-en="InfiniteScroll"
+      description="滚动到底部自动加载（指令）。"
+      description-en="Trigger loading on scroll bottom via directive."
+      :source="InfiniteScrollSrc"
+      path="src/demo/other/InfiniteScrollDemo.vue"
+    >
+      <InfiniteScrollDemo />
+    </DemoBox>
   </div>
 </template>

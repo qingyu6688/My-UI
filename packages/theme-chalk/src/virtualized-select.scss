@@ -1,0 +1,83 @@
+.my-virtualized-select {
+  display: inline-block;
+  width: 200px;
+}
+
+.my-virtualized-select__trigger {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.my-virtualized-select__trigger.is-focused,
+.my-virtualized-select__trigger:hover {
+  border-color: var(--my-color-primary);
+}
+
+.my-virtualized-select.is-disabled .my-virtualized-select__trigger {
+  background: var(--my-fill-color-light);
+  cursor: not-allowed;
+}
+
+.my-virtualized-select__value {
+  flex: 1;
+  color: var(--my-text-color-regular);
+}
+
+.my-virtualized-select__placeholder {
+  flex: 1;
+  color: var(--my-text-color-secondary);
+}
+
+.my-virtualized-select__arrow {
+  color: var(--my-text-color-secondary);
+  transition: transform 0.2s;
+}
+
+.my-virtualized-select__arrow.is-reverse {
+  transform: rotate(180deg);
+}
+
+.my-virtualized-select__panel {
+  width: 200px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+}
+
+.my-virtualized-select__scroll {
+  overflow-y: auto;
+}
+
+.my-virtualized-select__option {
+  padding: 0 12px;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-virtualized-select__option:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-virtualized-select__option.is-active {
+  background: var(--my-color-primary-light-7);
+  color: var(--my-color-primary-active);
+  font-weight: 600;
+}
+
+.my-virtualized-select__option.is-disabled {
+  color: var(--my-text-color-secondary);
+  cursor: not-allowed;
+  background: transparent;
+}

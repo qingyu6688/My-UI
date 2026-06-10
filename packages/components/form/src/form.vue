@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { provide, reactive, toRef } from 'vue'
+import { useSize } from '../../../hooks/use-config'
 import {
   formContextKey,
   type FormEmits,
@@ -15,7 +16,7 @@ defineOptions({
 const props = withDefaults(defineProps<FormProps>(), {
   model: undefined,
   rules: undefined,
-  size: 'default',
+  size: undefined,
   labelPosition: 'right',
   labelWidth: undefined,
   disabled: false,
@@ -28,10 +29,12 @@ defineEmits<FormEmits>()
 
 const fields = reactive(new Set<FormItemContext>())
 
+const actualSize = useSize(props)
+
 provide(formContextKey, {
   model: toRef(props, 'model'),
   rules: toRef(props, 'rules'),
-  size: toRef(props, 'size'),
+  size: actualSize,
   labelPosition: toRef(props, 'labelPosition'),
   labelWidth: toRef(props, 'labelWidth'),
   disabled: toRef(props, 'disabled'),
@@ -101,7 +104,7 @@ defineSlots<{ default(): unknown }>()
   <form
     class="my-form"
     :class="[
-      `my-form--${size}`,
+      `my-form--${actualSize}`,
       `my-form--label-${labelPosition}`,
       {
         'is-disabled': disabled,

@@ -1,0 +1,59 @@
+.my-color-picker-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 240px;
+  padding: 12px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+}
+
+.my-color-picker-panel__preview {
+  height: 40px;
+  border-radius: var(--my-radius-small);
+  border: 1px solid var(--my-border-color-light);
+}
+
+.my-color-picker-panel__inputs {
+  display: flex;
+  gap: 8px;
+}
+
+.my-color-picker-panel__inputs input[type='color'] {
+  width: 40px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  background: none;
+  cursor: pointer;
+}
+
+.my-color-picker-panel__hex {
+  flex: 1;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--my-border-color);
+  border-radius: var(--my-radius-base);
+  outline: none;
+  font: inherit;
+}
+
+.my-color-picker-panel__hex:focus {
+  border-color: var(--my-color-primary);
+}
+
+.my-color-picker-panel__predefine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.my-color-picker-panel__swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--my-radius-small);
+  border: 1px solid var(--my-border-color-light);
+  cursor: pointer;
+}

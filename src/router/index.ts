@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../pages/HomePage.vue'
 import GuidePage from '../pages/GuidePage.vue'
 import ComponentsPage from '../pages/ComponentsPage.vue'
+import PlaygroundPage from '../pages/PlaygroundPage.vue'
 import ThemePage from '../pages/ThemePage.vue'
 import RoadmapPage from '../pages/RoadmapPage.vue'
 
@@ -25,6 +26,11 @@ export const router = createRouter({
       path: '/components',
       name: 'components',
       component: ComponentsPage,
+    },
+    {
+      path: '/playground',
+      name: 'playground',
+      component: PlaygroundPage,
     },
     {
       path: '/theme',

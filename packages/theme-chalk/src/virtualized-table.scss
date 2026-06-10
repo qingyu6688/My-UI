@@ -1,0 +1,43 @@
+.my-virtualized-table {
+  width: 100%;
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  overflow: hidden;
+  background: var(--my-bg-color);
+}
+
+.my-virtualized-table__head {
+  display: flex;
+  background: var(--my-bg-color-soft);
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-virtualized-table__body {
+  overflow-y: auto;
+}
+
+.my-virtualized-table__row {
+  display: flex;
+  border-bottom: 1px solid var(--my-border-color-light);
+}
+
+.my-virtualized-table__row:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-virtualized-table__cell {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  color: var(--my-text-color-regular);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: var(--my-font-size-base);
+}
+
+.my-virtualized-table__cell--head {
+  padding: 10px 12px;
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}

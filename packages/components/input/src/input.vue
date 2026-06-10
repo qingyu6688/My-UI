@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs, useSlots, type StyleValue } from 'vue'
+import { computed, inject, ref, useAttrs, useSlots, type StyleValue } from 'vue'
+import { useSize } from '../../../hooks/use-config'
+import { formContextKey } from '../../form/src/form'
 import type { InputEmits, InputProps } from './input'
 
 defineOptions({
@@ -10,7 +12,7 @@ defineOptions({
 const props = withDefaults(defineProps<InputProps>(), {
   modelValue: '',
   type: 'text',
-  size: 'default',
+  size: undefined,
   placeholder: '',
   disabled: false,
   readonly: false,
@@ -23,6 +25,9 @@ const props = withDefaults(defineProps<InputProps>(), {
   name: undefined,
   id: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<InputEmits>()
 const slots = useSlots()
@@ -111,7 +116,7 @@ function togglePassword(): void {
     class="my-input"
     :class="[
       rootClass,
-      `my-input--${size}`,
+      `my-input--${actualSize}`,
       {
         'is-textarea': isTextarea,
         'is-disabled': disabled,

@@ -1,0 +1,146 @@
+.my-notification-wrapper {
+  position: fixed;
+  z-index: 2050;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+  width: 340px;
+}
+
+.my-notification-wrapper--top-right {
+  top: 24px;
+  right: 24px;
+}
+
+.my-notification-wrapper--top-left {
+  top: 24px;
+  left: 24px;
+}
+
+.my-notification-wrapper--bottom-right {
+  bottom: 24px;
+  right: 24px;
+  flex-direction: column-reverse;
+}
+
+.my-notification-wrapper--bottom-left {
+  bottom: 24px;
+  left: 24px;
+  flex-direction: column-reverse;
+}
+
+.my-notification-item {
+  pointer-events: auto;
+}
+
+.my-notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--my-bg-color);
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  box-shadow: var(--my-shadow-light);
+  color: var(--my-text-color-regular);
+  font-size: var(--my-font-size-base);
+  cursor: pointer;
+}
+
+.my-notification__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--my-color-primary);
+  color: var(--my-text-color-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.my-notification--success .my-notification__icon {
+  background: var(--my-color-success);
+  color: #fff;
+}
+
+.my-notification--warning .my-notification__icon {
+  background: var(--my-color-warning);
+  color: #3d3214;
+}
+
+.my-notification--danger .my-notification__icon {
+  background: var(--my-color-danger);
+  color: #fff;
+}
+
+.my-notification--info .my-notification__icon {
+  background: var(--my-color-info);
+  color: #fff;
+}
+
+.my-notification__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.my-notification__title {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: var(--my-text-color-primary);
+}
+
+.my-notification__message {
+  margin: 0;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.my-notification__close {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--my-text-color-secondary);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.my-notification__close:hover {
+  background: var(--my-fill-color-light);
+}
+
+/* 各角动画 */
+.my-notification-fade-top-right-enter-from,
+.my-notification-fade-top-right-leave-to,
+.my-notification-fade-bottom-right-enter-from,
+.my-notification-fade-bottom-right-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.my-notification-fade-top-left-enter-from,
+.my-notification-fade-top-left-leave-to,
+.my-notification-fade-bottom-left-enter-from,
+.my-notification-fade-bottom-left-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.my-notification-fade-top-right-enter-active,
+.my-notification-fade-top-right-leave-active,
+.my-notification-fade-top-left-enter-active,
+.my-notification-fade-top-left-leave-active,
+.my-notification-fade-bottom-right-enter-active,
+.my-notification-fade-bottom-right-leave-active,
+.my-notification-fade-bottom-left-enter-active,
+.my-notification-fade-bottom-left-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}

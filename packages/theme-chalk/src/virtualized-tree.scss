@@ -1,0 +1,46 @@
+.my-virtualized-tree {
+  overflow-y: auto;
+  border: 1px solid var(--my-border-color-light);
+  border-radius: var(--my-radius-base);
+  background: var(--my-bg-color);
+}
+
+.my-virtualized-tree__node {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 12px;
+  color: var(--my-text-color-regular);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.my-virtualized-tree__node:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+.my-virtualized-tree__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  font-size: 12px;
+  color: var(--my-text-color-secondary);
+  transition: transform 0.2s;
+}
+
+.my-virtualized-tree__arrow.is-expanded {
+  transform: rotate(90deg);
+}
+
+.my-virtualized-tree__arrow.is-leaf {
+  visibility: hidden;
+}
+
+.my-virtualized-tree__label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

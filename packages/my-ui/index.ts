@@ -22,9 +22,11 @@ import {
   MyCollapse,
   MyCollapseItem,
   MyColorPicker,
+  MyColorPickerPanel,
   MyConfigProvider,
   MyContainer,
   MyDatePicker,
+  MyDatePickerPanel,
   MyDateTimePicker,
   MyDescriptions,
   MyDescriptionsItem,
@@ -92,11 +94,15 @@ import {
   MyTreeSelect,
   MyUpload,
   MyVirtualList,
+  MyVirtualizedSelect,
+  MyVirtualizedTable,
+  MyVirtualizedTree,
   MyWatermark,
 } from '../components'
 import { MyLoading, vLoading } from '../components/loading'
 import { installMessage } from '../components/message'
 import { installMessageBox } from '../components/message-box'
+import { installNotification, Notification } from '../components/notification'
 import { applyTheme, createTheme, defaultThemeInput, type ThemeInput } from '../hooks'
 import '../theme-chalk/src/index.scss'
 
@@ -127,9 +133,11 @@ const components = [
   MyCollapse,
   MyCollapseItem,
   MyColorPicker,
+  MyColorPickerPanel,
   MyConfigProvider,
   MyContainer,
   MyDatePicker,
+  MyDatePickerPanel,
   MyDateTimePicker,
   MyDescriptions,
   MyDescriptionsItem,
@@ -197,6 +205,9 @@ const components = [
   MyTreeSelect,
   MyUpload,
   MyVirtualList,
+  MyVirtualizedSelect,
+  MyVirtualizedTable,
+  MyVirtualizedTree,
   MyWatermark,
 ] as const
 
@@ -209,6 +220,8 @@ const MyUI: Plugin<[MyUIOptions?]> = {
     app.directive('loading', vLoading)
     installMessage(app)
     installMessageBox(app)
+    installNotification(app)
+    app.config.globalProperties.$notification = Notification
     app.config.globalProperties.$loading = MyLoading
 
     applyTheme(createTheme(options.theme ?? defaultThemeInput))

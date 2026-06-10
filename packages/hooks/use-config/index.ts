@@ -65,6 +65,21 @@ export function useLocale(): ComputedRef<Language> {
   return computed(() => config.value.locale)
 }
 
+/**
+ * 解析组件实际尺寸，优先级：组件 prop > 父级（如 Form）注入 > ConfigProvider 全局 > 'default'
+ * @param props 至少包含 size?: ComponentSize 的响应式 props 对象
+ * @param parentSize 可选父级 size，如 Form 内子组件可传入 form context 的 size
+ */
+export function useSize(
+  props: { size?: ComponentSize | undefined },
+  parentSize?: ComputedRef<ComponentSize | undefined> | { value: ComponentSize | undefined },
+): ComputedRef<ComponentSize> {
+  const globalSize = useGlobalSize()
+  return computed(
+    () => (props.size ?? parentSize?.value ?? globalSize.value) as ComponentSize,
+  )
+}
+
 /** 生成递增且不低于全局基准的 z-index */
 export function useZIndex(): { nextZIndex: () => number; currentZIndex: ComputedRef<number> } {
   const config = useConfig()

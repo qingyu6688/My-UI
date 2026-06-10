@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, provide, ref, watch } from 'vue'
+import { computed, inject, nextTick, onBeforeUnmount, onMounted, provide, ref, watch } from 'vue'
+import { useSize } from '../../../hooks/use-config'
+import { formContextKey } from '../../form/src/form'
 import {
   selectContextKey,
   type SelectEmits,
@@ -21,10 +23,13 @@ const props = withDefaults(defineProps<SelectProps>(), {
   filterable: false,
   remote: false,
   remoteMethod: undefined,
-  size: 'default',
+  size: undefined,
   name: undefined,
   noDataText: '暂无数据',
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<SelectEmits>()
 
@@ -224,7 +229,7 @@ onBeforeUnmount(() => {
 provide(selectContextKey, {
   modelValue: computed(() => props.modelValue),
   multiple: computed(() => props.multiple),
-  size: computed(() => props.size),
+  size: actualSize,
   hoverIndex,
   visibleOptions,
   registerOption,
@@ -239,7 +244,7 @@ defineExpose({ open: openDropdown, close: closeDropdown })
   <div
     class="my-select"
     :class="[
-      `my-select--${size}`,
+      `my-select--${actualSize}`,
       {
         'is-disabled': disabled,
         'is-multiple': multiple,

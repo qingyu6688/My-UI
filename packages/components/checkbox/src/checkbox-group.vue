@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { provide, toRef } from 'vue'
+import { computed, inject, provide, toRef } from 'vue'
+import { useSize } from '../../../hooks/use-config'
+import { formContextKey } from '../../form/src/form'
 import {
   checkboxGroupKey,
   type CheckboxGroupEmits,
@@ -13,7 +15,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<CheckboxGroupProps>(), {
   modelValue: () => [],
-  size: 'default',
+  size: undefined,
   disabled: false,
   min: undefined,
   max: undefined,
@@ -21,9 +23,12 @@ const props = withDefaults(defineProps<CheckboxGroupProps>(), {
 
 const emit = defineEmits<CheckboxGroupEmits>()
 
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
+
 provide(checkboxGroupKey, {
   modelValue: toRef(props, 'modelValue'),
-  size: toRef(props, 'size'),
+  size: actualSize,
   disabled: toRef(props, 'disabled'),
   min: toRef(props, 'min'),
   max: toRef(props, 'max'),

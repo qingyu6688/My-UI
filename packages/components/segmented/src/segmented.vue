@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useSize } from '../../../hooks/use-config'
 import {
   type SegmentedEmits,
   type SegmentedOption,
@@ -13,10 +14,12 @@ defineOptions({
 
 const props = withDefaults(defineProps<SegmentedProps>(), {
   modelValue: undefined,
-  size: 'default',
+  size: undefined,
   disabled: false,
   block: false,
 })
+
+const actualSize = useSize(props)
 
 const emit = defineEmits<SegmentedEmits>()
 
@@ -42,7 +45,7 @@ function handleClick(option: SegmentedOption): void {
 <template>
   <div
     class="my-segmented"
-    :class="[`my-segmented--${size}`, { 'is-block': block, 'is-disabled': disabled }]"
+    :class="[`my-segmented--${actualSize}`, { 'is-block': block, 'is-disabled': disabled }]"
     role="radiogroup"
   >
     <button

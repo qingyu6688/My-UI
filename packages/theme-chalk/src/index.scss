@@ -15,8 +15,10 @@
 @use './checkbox.scss';
 @use './collapse.scss';
 @use './color-picker.scss';
+@use './color-picker-panel.scss';
 @use './container.scss';
 @use './date-picker.scss';
+@use './date-picker-panel.scss';
 @use './date-time-picker.scss';
 @use './descriptions.scss';
 @use './dialog.scss';
@@ -38,6 +40,7 @@
 @use './menu.scss';
 @use './message.scss';
 @use './message-box.scss';
+@use './notification.scss';
 @use './page-header.scss';
 @use './pagination.scss';
 @use './popconfirm.scss';
@@ -71,4 +74,7 @@
 @use './typography.scss';
 @use './upload.scss';
 @use './virtual-list.scss';
+@use './virtualized-select.scss';
+@use './virtualized-table.scss';
+@use './virtualized-tree.scss';
 @use './watermark.scss';

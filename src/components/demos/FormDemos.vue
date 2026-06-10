@@ -1,240 +1,237 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import DemoBlock from './DemoBlock.vue'
-import type { AutocompleteItem } from '../../../packages/my-ui'
-
-const state = reactive({
-  input: '',
-  password: '',
-  textarea: '',
-  number: 1,
-  radio: 'a',
-  checkbox: ['a'],
-  switch: true,
-  select: '',
-  selectMulti: [] as string[],
-  slider: 40,
-  rate: 3,
-  color: '#a8d5ba',
-  time: '',
-  date: '',
-  dateTime: '',
-  timeSelect: '',
-  cascader: [] as Array<string | number>,
-  treeSelect: undefined as string | number | undefined,
-  transfer: [2] as Array<string | number>,
-  autocomplete: '',
-  inputTag: ['Vue', 'TS'],
-  otp: '',
-  mention: '',
-  segmented: 'list',
-})
-
-const selectOptions = [
-  { value: 'design', label: '设计' },
-  { value: 'frontend', label: '前端' },
-  { value: 'backend', label: '后端' },
-]
-
-const cascaderOptions = [
-  {
-    label: '浙江',
-    value: 'zj',
-    children: [
-      { label: '杭州', value: 'hz' },
-      { label: '宁波', value: 'nb' },
-    ],
-  },
-  { label: '北京', value: 'bj' },
-]
-
-const treeData = [
-  {
-    key: '1',
-    label: '一级 1',
-    children: [
-      { key: '1-1', label: '二级 1-1' },
-      { key: '1-2', label: '二级 1-2' },
-    ],
-  },
-  { key: '2', label: '一级 2' },
-]
-
-const transferData = [
-  { key: 1, label: '选项 1' },
-  { key: 2, label: '选项 2' },
-  { key: 3, label: '选项 3' },
-  { key: 4, label: '选项 4' },
-]
-
-const mentionOptions = [
-  { value: 'vue' },
-  { value: 'react' },
-  { value: 'svelte' },
-]
-
-const segmentedOptions = [
-  { label: '列表', value: 'list' },
-  { label: '看板', value: 'board' },
-  { label: '日历', value: 'calendar' },
-]
-
-const fruits = ['Apple', 'Banana', 'Orange', 'Grape', 'Mango']
-
-function fetchSuggestions(query: string, cb: (items: AutocompleteItem[]) => void): void {
-  const list = fruits
-    .filter((item) => item.toLowerCase().includes(query.toLowerCase()))
-    .map((value) => ({ value }))
-  cb(list)
-}
-
-const formRef = ref()
-const formModel = reactive({ name: '', email: '' })
-const formRules = {
-  name: [{ required: true, message: '请输入名称' }],
-  email: [
-    { required: true, message: '请输入邮箱' },
-    { type: 'email', message: '邮箱格式不正确' },
-  ],
-}
-
-function submitForm(): void {
-  void formRef.value?.validate()
-}
+import DemoBox from './DemoBox.vue'
+import InputDemo from '../../demo/form/InputDemo.vue'
+import InputSrc from '../../demo/form/InputDemo.vue?raw'
+import InputNumberDemo from '../../demo/form/InputNumberDemo.vue'
+import InputNumberSrc from '../../demo/form/InputNumberDemo.vue?raw'
+import RadioDemo from '../../demo/form/RadioDemo.vue'
+import RadioSrc from '../../demo/form/RadioDemo.vue?raw'
+import CheckboxDemo from '../../demo/form/CheckboxDemo.vue'
+import CheckboxSrc from '../../demo/form/CheckboxDemo.vue?raw'
+import SwitchDemo from '../../demo/form/SwitchDemo.vue'
+import SwitchSrc from '../../demo/form/SwitchDemo.vue?raw'
+import SelectDemo from '../../demo/form/SelectDemo.vue'
+import SelectSrc from '../../demo/form/SelectDemo.vue?raw'
+import SliderDemo from '../../demo/form/SliderDemo.vue'
+import SliderSrc from '../../demo/form/SliderDemo.vue?raw'
+import RateDemo from '../../demo/form/RateDemo.vue'
+import RateSrc from '../../demo/form/RateDemo.vue?raw'
+import SegmentedDemo from '../../demo/form/SegmentedDemo.vue'
+import SegmentedSrc from '../../demo/form/SegmentedDemo.vue?raw'
+import ColorPickerDemo from '../../demo/form/ColorPickerDemo.vue'
+import ColorPickerSrc from '../../demo/form/ColorPickerDemo.vue?raw'
+import TimePickerDemo from '../../demo/form/TimePickerDemo.vue'
+import TimePickerSrc from '../../demo/form/TimePickerDemo.vue?raw'
+import DatePickerDemo from '../../demo/form/DatePickerDemo.vue'
+import DatePickerSrc from '../../demo/form/DatePickerDemo.vue?raw'
+import DateTimePickerDemo from '../../demo/form/DateTimePickerDemo.vue'
+import DateTimePickerSrc from '../../demo/form/DateTimePickerDemo.vue?raw'
+import TimeSelectDemo from '../../demo/form/TimeSelectDemo.vue'
+import TimeSelectSrc from '../../demo/form/TimeSelectDemo.vue?raw'
+import CascaderDemo from '../../demo/form/CascaderDemo.vue'
+import CascaderSrc from '../../demo/form/CascaderDemo.vue?raw'
+import TreeSelectDemo from '../../demo/form/TreeSelectDemo.vue'
+import TreeSelectSrc from '../../demo/form/TreeSelectDemo.vue?raw'
+import TransferDemo from '../../demo/form/TransferDemo.vue'
+import TransferSrc from '../../demo/form/TransferDemo.vue?raw'
+import UploadDemo from '../../demo/form/UploadDemo.vue'
+import UploadSrc from '../../demo/form/UploadDemo.vue?raw'
+import AutocompleteDemo from '../../demo/form/AutocompleteDemo.vue'
+import AutocompleteSrc from '../../demo/form/AutocompleteDemo.vue?raw'
+import InputTagDemo from '../../demo/form/InputTagDemo.vue'
+import InputTagSrc from '../../demo/form/InputTagDemo.vue?raw'
+import InputOTPDemo from '../../demo/form/InputOTPDemo.vue'
+import InputOTPSrc from '../../demo/form/InputOTPDemo.vue?raw'
+import MentionDemo from '../../demo/form/MentionDemo.vue'
+import MentionSrc from '../../demo/form/MentionDemo.vue?raw'
+import FormDemo from '../../demo/form/FormDemo.vue'
+import FormSrc from '../../demo/form/FormDemo.vue?raw'
 </script>
 
 <template>
   <div class="demo-group">
-    <DemoBlock name="Input" title="Input 输入框" description="清空、密码、前后缀与多行。">
-      <my-space direction="vertical" style="width: 100%; max-width: 320px;">
-        <my-input v-model="state.input" clearable placeholder="可清空输入" />
-        <my-input v-model="state.password" type="password" show-password placeholder="密码输入" />
-        <my-input v-model="state.textarea" type="textarea" :rows="2" placeholder="多行文本" />
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Input" title="Input 输入框" title-en="Input"
+      description="清空、密码、前后缀与多行。" description-en="Clearable, password, prefix and textarea."
+      :source="InputSrc" path="src/demo/form/InputDemo.vue"
+    >
+      <InputDemo />
+    </DemoBox>
 
-    <DemoBlock name="InputNumber" title="InputNumber 数字输入框" description="步进、范围与精度。">
-      <my-input-number v-model="state.number" :min="0" :max="10" />
-    </DemoBlock>
+    <DemoBox
+      name="InputNumber" title="InputNumber 数字输入框" title-en="InputNumber"
+      description="步进、范围与精度。" description-en="Stepper with range and precision."
+      :source="InputNumberSrc" path="src/demo/form/InputNumberDemo.vue"
+    >
+      <InputNumberDemo />
+    </DemoBox>
 
-    <DemoBlock name="Radio" title="Radio 单选框" description="单选与按钮组。">
-      <my-radio-group v-model="state.radio">
-        <my-radio value="a">选项 A</my-radio>
-        <my-radio value="b">选项 B</my-radio>
-        <my-radio value="c">选项 C</my-radio>
-      </my-radio-group>
-    </DemoBlock>
+    <DemoBox
+      name="Radio" title="Radio 单选框" title-en="Radio"
+      description="单选与按钮组。" description-en="Single and button group."
+      :source="RadioSrc" path="src/demo/form/RadioDemo.vue"
+    >
+      <RadioDemo />
+    </DemoBox>
 
-    <DemoBlock name="Checkbox" title="Checkbox 多选框" description="多选组。">
-      <my-checkbox-group v-model="state.checkbox">
-        <my-checkbox value="a">苹果</my-checkbox>
-        <my-checkbox value="b">香蕉</my-checkbox>
-        <my-checkbox value="c">橙子</my-checkbox>
-      </my-checkbox-group>
-    </DemoBlock>
+    <DemoBox
+      name="Checkbox" title="Checkbox 多选框" title-en="Checkbox"
+      description="多选组。" description-en="Checkbox group."
+      :source="CheckboxSrc" path="src/demo/form/CheckboxDemo.vue"
+    >
+      <CheckboxDemo />
+    </DemoBox>
 
-    <DemoBlock name="Switch" title="Switch 开关" description="状态切换。">
-      <my-space align="center">
-        <my-switch v-model="state.switch" />
-        <my-switch v-model="state.switch" size="large" />
-        <my-switch disabled />
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Switch" title="Switch 开关" title-en="Switch"
+      description="状态切换。" description-en="Toggle state."
+      :source="SwitchSrc" path="src/demo/form/SwitchDemo.vue"
+    >
+      <SwitchDemo />
+    </DemoBox>
 
-    <DemoBlock name="Select" title="Select 选择器" description="单选与多选。">
-      <my-space wrap>
-        <my-select v-model="state.select" placeholder="单选" style="width: 180px;">
-          <my-option v-for="o in selectOptions" :key="o.value" :value="o.value" :label="o.label" />
-        </my-select>
-        <my-select v-model="state.selectMulti" multiple placeholder="多选" style="width: 220px;">
-          <my-option v-for="o in selectOptions" :key="o.value" :value="o.value" :label="o.label" />
-        </my-select>
-      </my-space>
-    </DemoBlock>
+    <DemoBox
+      name="Select" title="Select 选择器" title-en="Select"
+      description="单选与多选。" description-en="Single and multiple."
+      :source="SelectSrc" path="src/demo/form/SelectDemo.vue"
+    >
+      <SelectDemo />
+    </DemoBox>
 
-    <DemoBlock name="Slider" title="Slider 滑块" description="拖拽或键盘调整。">
-      <div style="max-width: 320px;">
-        <my-slider v-model="state.slider" show-stops :step="10" />
-      </div>
-    </DemoBlock>
+    <DemoBox
+      name="Slider" title="Slider 滑块" title-en="Slider"
+      description="拖拽或键盘调整。" description-en="Drag or keyboard adjust."
+      :source="SliderSrc" path="src/demo/form/SliderDemo.vue"
+    >
+      <SliderDemo />
+    </DemoBox>
 
-    <DemoBlock name="Rate" title="Rate 评分" description="星级评分。">
-      <my-rate v-model="state.rate" />
-    </DemoBlock>
+    <DemoBox
+      name="Rate" title="Rate 评分" title-en="Rate"
+      description="星级评分。" description-en="Star rating."
+      :source="RateSrc" path="src/demo/form/RateDemo.vue"
+    >
+      <RateDemo />
+    </DemoBox>
 
-    <DemoBlock name="Segmented" title="Segmented 分段控制器" description="视图切换。">
-      <my-segmented v-model="state.segmented" :options="segmentedOptions" />
-    </DemoBlock>
+    <DemoBox
+      name="Segmented" title="Segmented 分段控制器" title-en="Segmented"
+      description="视图切换。" description-en="View switch."
+      :source="SegmentedSrc" path="src/demo/form/SegmentedDemo.vue"
+    >
+      <SegmentedDemo />
+    </DemoBox>
 
-    <DemoBlock name="ColorPicker" title="ColorPicker 颜色选择器" description="预设与原生取色。">
-      <my-color-picker v-model="state.color" :predefine="['#a8d5ba', '#7fc7c2', '#aeb4e8', '#e5c76f']" />
-    </DemoBlock>
+    <DemoBox
+      name="ColorPicker" title="ColorPicker 颜色选择器" title-en="ColorPicker"
+      description="预设与原生取色。" description-en="Predefined colors and native picker."
+      :source="ColorPickerSrc" path="src/demo/form/ColorPickerDemo.vue"
+    >
+      <ColorPickerDemo />
+    </DemoBox>
 
-    <DemoBlock name="TimePicker" title="TimePicker 时间选择器" description="时分秒选择。">
-      <my-time-picker v-model="state.time" />
-    </DemoBlock>
+    <DemoBox
+      name="TimePicker" title="TimePicker 时间选择器" title-en="TimePicker"
+      description="时分秒选择。" description-en="Hour, minute and second."
+      :source="TimePickerSrc" path="src/demo/form/TimePickerDemo.vue"
+    >
+      <TimePickerDemo />
+    </DemoBox>
 
-    <DemoBlock name="DatePicker" title="DatePicker 日期选择器" description="日历面板选择。">
-      <my-date-picker v-model="state.date" clearable />
-    </DemoBlock>
+    <DemoBox
+      name="DatePicker" title="DatePicker 日期选择器" title-en="DatePicker"
+      description="日历面板选择。" description-en="Calendar panel."
+      :source="DatePickerSrc" path="src/demo/form/DatePickerDemo.vue"
+    >
+      <DatePickerDemo />
+    </DemoBox>
 
-    <DemoBlock name="DateTimePicker" title="DateTimePicker 日期时间" description="日期 + 时间。">
-      <my-date-time-picker v-model="state.dateTime" clearable />
-    </DemoBlock>
+    <DemoBox
+      name="DateTimePicker" title="DateTimePicker 日期时间" title-en="DateTimePicker"
+      description="日期 + 时间。" description-en="Date and time."
+      :source="DateTimePickerSrc" path="src/demo/form/DateTimePickerDemo.vue"
+    >
+      <DateTimePickerDemo />
+    </DemoBox>
 
-    <DemoBlock name="TimeSelect" title="TimeSelect 时间选择" description="固定间隔选项。">
-      <my-time-select v-model="state.timeSelect" start="09:00" end="18:00" step="00:30" />
-    </DemoBlock>
+    <DemoBox
+      name="TimeSelect" title="TimeSelect 时间选择" title-en="TimeSelect"
+      description="固定间隔选项。" description-en="Fixed step options."
+      :source="TimeSelectSrc" path="src/demo/form/TimeSelectDemo.vue"
+    >
+      <TimeSelectDemo />
+    </DemoBox>
 
-    <DemoBlock name="Cascader" title="Cascader 级联选择器" description="多级联动。">
-      <my-cascader v-model="state.cascader" :options="cascaderOptions" />
-    </DemoBlock>
+    <DemoBox
+      name="Cascader" title="Cascader 级联选择器" title-en="Cascader"
+      description="多级联动。" description-en="Multi-level linkage."
+      :source="CascaderSrc" path="src/demo/form/CascaderDemo.vue"
+    >
+      <CascaderDemo />
+    </DemoBox>
 
-    <DemoBlock name="TreeSelect" title="TreeSelect 树形选择" description="树结构下拉选择。">
-      <my-tree-select v-model="state.treeSelect" :data="treeData" default-expand-all />
-    </DemoBlock>
+    <DemoBox
+      name="TreeSelect" title="TreeSelect 树形选择" title-en="TreeSelect"
+      description="树结构下拉选择。" description-en="Tree-structured dropdown."
+      :source="TreeSelectSrc" path="src/demo/form/TreeSelectDemo.vue"
+    >
+      <TreeSelectDemo />
+    </DemoBox>
 
-    <DemoBlock name="Transfer" title="Transfer 穿梭框" description="双列移动选择。">
-      <my-transfer v-model="state.transfer" :data="transferData" filterable />
-    </DemoBlock>
+    <DemoBox
+      name="Transfer" title="Transfer 穿梭框" title-en="Transfer"
+      description="双列移动选择。" description-en="Two-column move selection."
+      :source="TransferSrc" path="src/demo/form/TransferDemo.vue"
+    >
+      <TransferDemo />
+    </DemoBox>
 
-    <DemoBlock name="Upload" title="Upload 上传" description="拖拽与文件列表。">
-      <my-upload drag />
-    </DemoBlock>
+    <DemoBox
+      name="Upload" title="Upload 上传" title-en="Upload"
+      description="拖拽与文件列表。" description-en="Drag and file list."
+      :source="UploadSrc" path="src/demo/form/UploadDemo.vue"
+    >
+      <UploadDemo />
+    </DemoBox>
 
-    <DemoBlock name="Autocomplete" title="Autocomplete 自动补全" description="输入联想建议。">
-      <my-autocomplete
-        v-model="state.autocomplete"
-        :fetch-suggestions="fetchSuggestions"
-        placeholder="输入水果名"
-      />
-    </DemoBlock>
+    <DemoBox
+      name="Autocomplete" title="Autocomplete 自动补全" title-en="Autocomplete"
+      description="输入联想建议。" description-en="Input suggestions."
+      :source="AutocompleteSrc" path="src/demo/form/AutocompleteDemo.vue"
+    >
+      <AutocompleteDemo />
+    </DemoBox>
 
-    <DemoBlock name="InputTag" title="InputTag 标签输入" description="回车新增标签。">
-      <my-input-tag v-model="state.inputTag" placeholder="输入后回车" style="max-width: 320px;" />
-    </DemoBlock>
+    <DemoBox
+      name="InputTag" title="InputTag 标签输入" title-en="InputTag"
+      description="回车新增标签。" description-en="Press Enter to add tags."
+      :source="InputTagSrc" path="src/demo/form/InputTagDemo.vue"
+    >
+      <InputTagDemo />
+    </DemoBox>
 
-    <DemoBlock name="InputOTP" title="InputOTP 验证码输入" description="自动聚焦与粘贴。">
-      <my-input-otp v-model="state.otp" :length="6" type="number" />
-    </DemoBlock>
+    <DemoBox
+      name="InputOTP" title="InputOTP 验证码输入" title-en="InputOTP"
+      description="自动聚焦与粘贴。" description-en="Auto focus and paste."
+      :source="InputOTPSrc" path="src/demo/form/InputOTPDemo.vue"
+    >
+      <InputOTPDemo />
+    </DemoBox>
 
-    <DemoBlock name="Mention" title="Mention 提及" description="输入 @ 触发联想。">
-      <my-mention v-model="state.mention" :options="mentionOptions" placeholder="输入 @ 提及" />
-    </DemoBlock>
+    <DemoBox
+      name="Mention" title="Mention 提及" title-en="Mention"
+      description="输入 @ 触发联想。" description-en="Type @ to mention."
+      :source="MentionSrc" path="src/demo/form/MentionDemo.vue"
+    >
+      <MentionDemo />
+    </DemoBox>
 
-    <DemoBlock name="Form" title="Form 表单" description="字段布局与校验。">
-      <my-form ref="formRef" :model="formModel" :rules="formRules" label-width="72px" style="max-width: 360px;">
-        <my-form-item label="名称" prop="name">
-          <my-input v-model="formModel.name" />
-        </my-form-item>
-        <my-form-item label="邮箱" prop="email">
-          <my-input v-model="formModel.email" />
-        </my-form-item>
-        <my-form-item>
-          <my-button type="primary" @click="submitForm">提交</my-button>
-          <my-button @click="formRef?.resetFields()">重置</my-button>
-        </my-form-item>
-      </my-form>
-    </DemoBlock>
+    <DemoBox
+      name="Form" title="Form 表单" title-en="Form"
+      description="字段布局与校验。" description-en="Field layout and validation."
+      :source="FormSrc" path="src/demo/form/FormDemo.vue"
+    >
+      <FormDemo />
+    </DemoBox>
   </div>
 </template>

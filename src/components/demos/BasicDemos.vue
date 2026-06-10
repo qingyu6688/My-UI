@@ -4,6 +4,10 @@ import ButtonDemo from '../../demo/basic/ButtonDemo.vue'
 import ButtonSrc from '../../demo/basic/ButtonDemo.vue?raw'
 import IconDemo from '../../demo/basic/IconDemo.vue'
 import IconSrc from '../../demo/basic/IconDemo.vue?raw'
+import LayoutDemo from '../../demo/basic/LayoutDemo.vue'
+import LayoutSrc from '../../demo/basic/LayoutDemo.vue?raw'
+import ContainerDemo from '../../demo/basic/ContainerDemo.vue'
+import ContainerSrc from '../../demo/basic/ContainerDemo.vue?raw'
 import TextDemo from '../../demo/basic/TextDemo.vue'
 import TextSrc from '../../demo/basic/TextDemo.vue?raw'
 import TypographyDemo from '../../demo/basic/TypographyDemo.vue'
@@ -38,6 +42,26 @@ import ScrollbarSrc from '../../demo/basic/ScrollbarDemo.vue?raw'
       path="src/demo/basic/IconDemo.vue"
     >
       <IconDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="Layout"
+      title="Layout 布局"
+      description="基于 24 栅格完成横向排布、间距和对齐。"
+      :source="LayoutSrc"
+      path="src/demo/basic/LayoutDemo.vue"
+    >
+      <LayoutDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="Container"
+      title="Container 布局容器"
+      description="组合 Header、Aside、Main、Footer 搭建页面骨架。"
+      :source="ContainerSrc"
+      path="src/demo/basic/ContainerDemo.vue"
+    >
+      <ContainerDemo />
     </DemoBox>
 
     <DemoBox

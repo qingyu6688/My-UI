@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSize } from '../../../hooks/use-config'
 import type { ButtonEmits, ButtonProps } from './button'
 
 defineOptions({
@@ -7,7 +8,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'default',
-  size: 'default',
+  size: undefined,
   nativeType: 'button',
   disabled: false,
   loading: false,
@@ -15,6 +16,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   round: false,
   text: false,
 })
+
+const actualSize = useSize(props)
 
 const emit = defineEmits<ButtonEmits>()
 
@@ -33,7 +36,7 @@ function handleClick(event: MouseEvent): void {
     class="my-button"
     :class="[
       `my-button--${type}`,
-      `my-button--${size}`,
+      `my-button--${actualSize}`,
       {
         'is-disabled': disabled,
         'is-loading': loading,

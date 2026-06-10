@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Github, Menu, Search, X } from 'lucide-vue-next'
+import { FlaskConical, Github, Menu, Moon, Search, Sun, X } from 'lucide-vue-next'
 import { navItems } from '../data/home'
+import { useSiteLocale } from '../composables/use-site-locale'
+import { useSiteThemeMode } from '../composables/use-site-theme-mode'
 
 const router = useRouter()
 const route = useRoute()
 const isMenuOpen = ref(false)
+const { isZh, languageButtonText, languageButtonLabel, toggleSiteLocale } = useSiteLocale()
+const { isDark, isThemeAnimating, themeButtonLabel, toggleThemeMode } = useSiteThemeMode()
 
 const activePath = computed(() => {
   if (route.path === '/') {
@@ -15,6 +19,19 @@ const activePath = computed(() => {
 
   return navItems.find((item) => route.path.startsWith(item.path))?.path ?? route.path
 })
+
+const searchPlaceholder = computed(() => (isZh.value ? '搜索组件' : 'Search components'))
+const githubLabel = computed(() => (isZh.value ? '打开 GitHub' : 'Open GitHub'))
+const playgroundLabel = computed(() => (isZh.value ? '打开演练场' : 'Open Playground'))
+const brandLabel = computed(() => (isZh.value ? '返回首页' : 'Back to home'))
+const menuLabel = computed(() => {
+  if (isMenuOpen.value) return isZh.value ? '关闭导航' : 'Close navigation'
+  return isZh.value ? '打开导航' : 'Open navigation'
+})
+
+function getNavLabel(item: (typeof navItems)[number]): string {
+  return isZh.value ? item.label : item.labelEn
+}
 
 async function navigate(path: string): Promise<void> {
   if (route.path !== path) {
@@ -35,7 +52,7 @@ function openGithub(): void {
 <template>
   <header class="site-header">
     <div class="site-header__inner">
-      <my-button text class="site-brand" aria-label="返回首页" @click="navigate('/')">
+      <my-button text class="site-brand" :aria-label="brandLabel" @click="navigate('/')">
         <span class="site-brand__mark">My</span>
         <span class="site-brand__name">My UI</span>
       </my-button>
@@ -51,15 +68,15 @@ function openGithub(): void {
           :key="item.path"
           :index="item.path"
         >
-          {{ item.label }}
+          {{ getNavLabel(item) }}
         </my-menu-item>
       </my-menu>
 
-      <my-space class="site-header__actions" :size="8">
+      <my-space class="site-header__actions" :size="8" :wrap="false">
         <div class="site-search">
           <my-input
             readonly
-            placeholder="搜索组件"
+            :placeholder="searchPlaceholder"
             @focus="openSearch"
             @click="openSearch"
           >
@@ -68,14 +85,48 @@ function openGithub(): void {
             </template>
           </my-input>
         </div>
-        <my-button class="site-icon-button site-github-button" aria-label="打开 GitHub" @click="openGithub">
+        <button
+          type="button"
+          class="site-theme-switch"
+          :class="{ 'is-dark': isDark }"
+          role="switch"
+          :aria-checked="isDark"
+          :aria-label="themeButtonLabel"
+          :title="themeButtonLabel"
+          :disabled="isThemeAnimating"
+          @click="toggleThemeMode"
+        >
+          <span class="site-theme-switch__track">
+            <Sun class="site-theme-switch__icon site-theme-switch__icon--sun" />
+            <Moon class="site-theme-switch__icon site-theme-switch__icon--moon" />
+            <span class="site-theme-switch__thumb" />
+          </span>
+        </button>
+        <my-button
+          class="site-language-button"
+          :aria-label="languageButtonLabel"
+          @click="toggleSiteLocale"
+        >
+          {{ languageButtonText }}
+        </my-button>
+        <my-button
+          class="site-icon-button site-playground-button"
+          :aria-label="playgroundLabel"
+          :title="playgroundLabel"
+          @click="navigate('/playground')"
+        >
+          <template #icon>
+            <FlaskConical />
+          </template>
+        </my-button>
+        <my-button class="site-icon-button site-github-button" :aria-label="githubLabel" @click="openGithub">
           <template #icon>
             <Github />
           </template>
         </my-button>
         <my-button
           class="site-icon-button site-menu-trigger"
-          :aria-label="isMenuOpen ? '关闭导航' : '打开导航'"
+          :aria-label="menuLabel"
           :aria-expanded="isMenuOpen"
           @click="isMenuOpen = !isMenuOpen"
         >
@@ -94,7 +145,7 @@ function openGithub(): void {
           :key="item.path"
           :index="item.path"
         >
-          {{ item.label }}
+          {{ getNavLabel(item) }}
         </my-menu-item>
       </my-menu>
     </div>

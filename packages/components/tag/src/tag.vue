@@ -1,18 +1,21 @@
 <script setup lang="ts">
+import { useSize } from '../../../hooks/use-config'
 import type { TagEmits, TagProps } from './tag'
 
 defineOptions({
   name: 'MyTag',
 })
 
-withDefaults(defineProps<TagProps>(), {
+const props = withDefaults(defineProps<TagProps>(), {
   type: 'default',
-  size: 'default',
+  size: undefined,
   effect: 'light',
   closable: false,
   round: false,
   disableTransitions: false,
 })
+
+const actualSize = useSize(props)
 
 const emit = defineEmits<TagEmits>()
 
@@ -27,7 +30,7 @@ function handleClose(event: MouseEvent): void {
     class="my-tag"
     :class="[
       `my-tag--${type}`,
-      `my-tag--${size}`,
+      `my-tag--${actualSize}`,
       `my-tag--${effect}`,
       {
         'is-round': round,
