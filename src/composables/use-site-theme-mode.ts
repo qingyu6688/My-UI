@@ -4,7 +4,10 @@ import { useSiteLocale, type SiteLocale } from './use-site-locale'
 export type SiteThemeMode = 'light' | 'dark'
 
 const STORAGE_KEY = 'my-ui-site-theme-mode'
-const TRANSITION_DURATION = 360
+
+// 兼容回退动画时长：仅在不支持 View Transitions API 时用
+const FALLBACK_DURATION = 260
+const VIEW_TRANSITION_DURATION = 520
 
 const lightModeVars: Record<string, string> = {
   '--my-text-color-primary': '#26332b',
@@ -36,7 +39,10 @@ function readInitialMode(): SiteThemeMode {
   if (typeof window === 'undefined') return 'light'
 
   const saved = window.localStorage.getItem(STORAGE_KEY)
-  return saved === 'dark' ? 'dark' : 'light'
+  if (saved === 'dark' || saved === 'light') return saved
+
+  // 首次访问跟随系统
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
 function applyMode(mode: SiteThemeMode): void {
@@ -58,8 +64,16 @@ function modeLabel(mode: SiteThemeMode, locale: SiteLocale): string {
   if (mode === 'dark') {
     return locale === 'zh' ? '切换到浅色模式' : 'Switch to light mode'
   }
-
   return locale === 'zh' ? '切换到深色模式' : 'Switch to dark mode'
+}
+
+/**
+ * 是否支持 View Transitions API + 用户没开"减少动画"偏好
+ */
+function canUseViewTransition(): boolean {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return false
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  return !reduceMotion && typeof document.startViewTransition === 'function'
 }
 
 export function useSiteThemeMode() {
@@ -67,7 +81,7 @@ export function useSiteThemeMode() {
   const isDark = computed(() => siteThemeMode.value === 'dark')
   const themeButtonLabel = computed(() => modeLabel(siteThemeMode.value, locale.value))
 
-  function setThemeMode(mode: SiteThemeMode): void {
+  function persist(mode: SiteThemeMode): void {
     siteThemeMode.value = mode
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(STORAGE_KEY, mode)
@@ -75,25 +89,74 @@ export function useSiteThemeMode() {
     applyMode(mode)
   }
 
-  function toggleThemeMode(): void {
-    if (isThemeAnimating.value || typeof window === 'undefined' || typeof document === 'undefined') {
+  function setThemeMode(mode: SiteThemeMode): void {
+    persist(mode)
+  }
+
+  /**
+   * 切换主题。优先使用 View Transitions API 做圆形展开（GPU 合成，性能最佳）；
+   * 不支持时退回精简 CSS 全局过渡（仅颜色相关属性，无 transform/box-shadow）。
+   * @param event 触发事件，用于圆心定位
+   */
+  function toggleThemeMode(event?: MouseEvent): void {
+    if (isThemeAnimating.value || typeof document === 'undefined') return
+    const nextMode: SiteThemeMode = isDark.value ? 'light' : 'dark'
+
+    // 路径 1：View Transitions API
+    if (canUseViewTransition()) {
+      const transitionType = nextMode === 'dark' ? 'reveal-new' : 'hide-old'
+      document.documentElement.dataset.themeTransition = transitionType
+
+      const transition = document.startViewTransition(() => {
+        persist(nextMode)
+      })
+
+      const x = event?.clientX ?? window.innerWidth / 2
+      const y = event?.clientY ?? window.innerHeight / 2
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y),
+      )
+
+      isThemeAnimating.value = true
+      const viewAnimationFinished = transition.ready
+        .then(() => {
+          const clipPath =
+            nextMode === 'dark'
+              ? [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`]
+              : [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
+
+          const animation = document.documentElement.animate(
+            {
+              clipPath,
+            },
+            {
+              duration: VIEW_TRANSITION_DURATION,
+              easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+              fill: 'both',
+              pseudoElement: nextMode === 'dark' ? '::view-transition-new(root)' : '::view-transition-old(root)',
+            },
+          )
+
+          return animation.finished
+        })
+        .catch(() => undefined)
+
+      Promise.allSettled([transition.finished, viewAnimationFinished]).finally(() => {
+        delete document.documentElement.dataset.themeTransition
+        isThemeAnimating.value = false
+      })
       return
     }
 
-    const nextMode: SiteThemeMode = isDark.value ? 'light' : 'dark'
+    // 路径 2：CSS 兼容回退（不支持 VT 或 prefers-reduced-motion）
     isThemeAnimating.value = true
     document.documentElement.classList.add('site-theme-transition')
-
-    window.requestAnimationFrame(() => {
-      siteThemeMode.value = nextMode
-      window.localStorage.setItem(STORAGE_KEY, nextMode)
-      applyMode(nextMode)
-    })
-
+    persist(nextMode)
     window.setTimeout(() => {
       document.documentElement.classList.remove('site-theme-transition')
       isThemeAnimating.value = false
-    }, TRANSITION_DURATION)
+    }, FALLBACK_DURATION)
   }
 
   return {

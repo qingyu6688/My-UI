@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
 import { isHexColor } from '../../../utils/color'
 import { MyButton } from '../../button'
+import { formContextKey } from '../../form/src/form'
 import type { ColorPickerEmits, ColorPickerProps } from './color-picker'
 
 defineOptions({
@@ -13,8 +15,11 @@ const props = withDefaults(defineProps<ColorPickerProps>(), {
   modelValue: '',
   disabled: false,
   predefine: () => [],
-  size: 'default',
+  size: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<ColorPickerEmits>()
 
@@ -58,7 +63,7 @@ function confirm(): void {
 </script>
 
 <template>
-  <span class="my-color-picker" :class="[`my-color-picker--${size}`, { 'is-disabled': disabled }]">
+  <span class="my-color-picker" :class="[`my-color-picker--${actualSize}`, { 'is-disabled': disabled }]">
     <span
       ref="triggerRef"
       class="my-color-picker__trigger"

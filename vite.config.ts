@@ -20,19 +20,22 @@ export default defineConfig(({ mode }) => {
           emptyOutDir: true,
           cssCodeSplit: false,
           lib: {
-            entry: resolve(__dirname, 'packages/my-ui/index.ts'),
-            name: 'MyUI',
+            entry: {
+              index: resolve(__dirname, 'packages/my-ui/index.ts'),
+              full: resolve(__dirname, 'packages/my-ui/full.ts'),
+            },
             formats: ['es', 'cjs'],
-            fileName: (format) => (format === 'es' ? 'index.mjs' : 'index.cjs'),
+            fileName: (format, name) => (format === 'es' ? `${name}.mjs` : `${name}.cjs`),
             cssFileName: 'theme-chalk/index',
           },
           rollupOptions: {
-            external: ['vue'],
+            external: ['vue', 'lucide-vue-next'],
             output: {
               exports: 'named',
-              globals: {
-                vue: 'Vue',
-              },
+              globals: { vue: 'Vue' },
+              // 关键：保留每个组件为独立 chunk，消费侧 rollup 才能真正 tree-shake
+              preserveModules: true,
+              preserveModulesRoot: 'packages',
             },
           },
         }

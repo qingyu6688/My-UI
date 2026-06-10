@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
+import { formContextKey } from '../../form/src/form'
 import type { CascaderEmits, CascaderOption, CascaderProps } from './cascader'
 
 defineOptions({
@@ -13,10 +15,13 @@ const props = withDefaults(defineProps<CascaderProps>(), {
   disabled: false,
   clearable: false,
   separator: ' / ',
-  size: 'default',
+  size: undefined,
 })
 
 const emit = defineEmits<CascaderEmits>()
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const { visible, triggerRef, popperRef, popperStyle, toggle, close } = usePopper({
   placement: 'bottom-start',
@@ -100,7 +105,7 @@ function clear(): void {
 <template>
   <div
     class="my-cascader"
-    :class="[`my-cascader--${size}`, { 'is-disabled': disabled }]"
+    :class="[`my-cascader--${actualSize}`, { 'is-disabled': disabled }]"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
   >

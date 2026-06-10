@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, useSlots, type VNode } from 'vue'
+import { useSize } from '../../../hooks/use-config'
 import type { DescriptionsProps } from './descriptions'
 
 defineOptions({
@@ -10,8 +11,10 @@ const props = withDefaults(defineProps<DescriptionsProps>(), {
   title: '',
   column: 3,
   border: false,
-  size: 'default',
+  size: undefined,
 })
+
+const actualSize = useSize(props)
 
 const slots = useSlots()
 
@@ -58,7 +61,7 @@ const rows = computed<ResolvedItem[][]>(() => {
 </script>
 
 <template>
-  <div class="my-descriptions" :class="[`my-descriptions--${size}`, { 'is-bordered': border }]">
+  <div class="my-descriptions" :class="[`my-descriptions--${actualSize}`, { 'is-bordered': border }]">
     <div v-if="title || $slots.title" class="my-descriptions__title">
       <slot name="title">{{ title }}</slot>
     </div>

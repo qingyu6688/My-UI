@@ -16,6 +16,8 @@ import MessageDemo from '../../demo/feedback/MessageDemo.vue'
 import MessageSrc from '../../demo/feedback/MessageDemo.vue?raw'
 import MessageBoxDemo from '../../demo/feedback/MessageBoxDemo.vue'
 import MessageBoxSrc from '../../demo/feedback/MessageBoxDemo.vue?raw'
+import NotificationDemo from '../../demo/feedback/NotificationDemo.vue'
+import NotificationSrc from '../../demo/feedback/NotificationDemo.vue?raw'
 import LoadingDemo from '../../demo/feedback/LoadingDemo.vue'
 import LoadingSrc from '../../demo/feedback/LoadingDemo.vue?raw'
 import ResultDemo from '../../demo/feedback/ResultDemo.vue'
@@ -88,6 +90,15 @@ import TourSrc from '../../demo/feedback/TourDemo.vue?raw'
       :source="MessageBoxSrc" path="src/demo/feedback/MessageBoxDemo.vue"
     >
       <MessageBoxDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="Notification" title="Notification 通知" title-en="Notification"
+      description="4 角通知，支持类型、自动关闭、可关闭按钮。"
+      description-en="Notification at 4 corners, with auto-close and close button."
+      :source="NotificationSrc" path="src/demo/feedback/NotificationDemo.vue"
+    >
+      <NotificationDemo />
     </DemoBox>
 
     <DemoBox

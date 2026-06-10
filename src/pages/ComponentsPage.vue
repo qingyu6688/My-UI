@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
 import BasicDemos from '../components/demos/BasicDemos.vue'
+import ConfigurationDemos from '../components/demos/ConfigurationDemos.vue'
 import FormDemos from '../components/demos/FormDemos.vue'
 import DataDemos from '../components/demos/DataDemos.vue'
 import NavDemos from '../components/demos/NavDemos.vue'
@@ -34,15 +35,28 @@ const categories: Category[] = [
     component: BasicDemos,
     items: [
       { id: 'Button', zh: '按钮', en: 'Button' },
+      { id: 'Border', zh: '边框', en: 'Border' },
+      { id: 'Color', zh: '色彩', en: 'Color' },
+      { id: 'Container', zh: '布局容器', en: 'Container' },
       { id: 'Icon', zh: '图标', en: 'Icon' },
       { id: 'Layout', zh: '布局', en: 'Layout' },
-      { id: 'Container', zh: '布局容器', en: 'Container' },
-      { id: 'Text', zh: '文本', en: 'Text' },
-      { id: 'Typography', zh: '排版', en: 'Typography' },
       { id: 'Link', zh: '链接', en: 'Link' },
-      { id: 'Space', zh: '间距', en: 'Space' },
-      { id: 'Divider', zh: '分割线', en: 'Divider' },
+      { id: 'Text', zh: '文本', en: 'Text' },
       { id: 'Scrollbar', zh: '滚动条', en: 'Scrollbar' },
+      { id: 'Space', zh: '间距', en: 'Space' },
+      { id: 'Splitter', zh: '分隔面板', en: 'Splitter' },
+      { id: 'Typography', zh: '排版', en: 'Typography' },
+    ],
+  },
+  {
+    key: 'configuration',
+    label: '配置组件',
+    labelEn: 'Configuration',
+    description: '通过 ConfigProvider 统一注入命名空间、尺寸、层级、语言等全局配置。',
+    descriptionEn: 'Inject namespace, size, z-index and locale globally via ConfigProvider.',
+    component: ConfigurationDemos,
+    items: [
+      { id: 'ConfigProvider', zh: '全局配置', en: 'Config Provider' },
     ],
   },
   {
@@ -59,10 +73,13 @@ const categories: Category[] = [
       { id: 'Checkbox', zh: '多选框', en: 'Checkbox' },
       { id: 'Switch', zh: '开关', en: 'Switch' },
       { id: 'Select', zh: '选择器', en: 'Select' },
+      { id: 'VirtualizedSelect', zh: '虚拟化选择器', en: 'Virtualized Select' },
       { id: 'Slider', zh: '滑块', en: 'Slider' },
       { id: 'Rate', zh: '评分', en: 'Rate' },
       { id: 'Segmented', zh: '分段控制器', en: 'Segmented' },
       { id: 'ColorPicker', zh: '颜色选择器', en: 'Color Picker' },
+      { id: 'ColorPickerPanel', zh: '颜色选择器面板', en: 'ColorPickerPanel' },
+      { id: 'DatePickerPanel', zh: '日期选择器面板', en: 'Date Picker Panel' },
       { id: 'TimePicker', zh: '时间选择器', en: 'Time Picker' },
       { id: 'DatePicker', zh: '日期选择器', en: 'Date Picker' },
       { id: 'DateTimePicker', zh: '日期时间选择器', en: 'DateTime Picker' },
@@ -104,6 +121,9 @@ const categories: Category[] = [
       { id: 'Carousel', zh: '走马灯', en: 'Carousel' },
       { id: 'Calendar', zh: '日历', en: 'Calendar' },
       { id: 'VirtualList', zh: '虚拟列表', en: 'Virtual List' },
+      { id: 'VirtualizedTable', zh: '虚拟化表格', en: 'Virtualized Table' },
+      { id: 'VirtualizedTree', zh: '虚拟化树形控件', en: 'Virtualized Tree' },
+      { id: 'InfiniteScroll', zh: '无限滚动', en: 'Infinite Scroll' },
     ],
   },
   {
@@ -121,7 +141,8 @@ const categories: Category[] = [
       { id: 'Dropdown', zh: '下拉菜单', en: 'Dropdown' },
       { id: 'PageHeader', zh: '页头', en: 'Page Header' },
       { id: 'Anchor', zh: '锚点', en: 'Anchor' },
-      { id: 'Backtop / Affix', zh: '回到顶部 / 固钉', en: 'Backtop / Affix' },
+      { id: 'Affix', zh: '固钉', en: 'Affix' },
+      { id: 'Backtop', zh: '回到顶部', en: 'Backtop' },
     ],
   },
   {
@@ -140,6 +161,7 @@ const categories: Category[] = [
       { id: 'Drawer', zh: '抽屉', en: 'Drawer' },
       { id: 'Message', zh: '消息提示', en: 'Message' },
       { id: 'MessageBox', zh: '消息弹出框', en: 'Message Box' },
+      { id: 'Notification', zh: '通知', en: 'Notification' },
       { id: 'Loading', zh: '加载', en: 'Loading' },
       { id: 'Result', zh: '结果', en: 'Result' },
       { id: 'Tour', zh: '漫游引导', en: 'Tour' },
@@ -149,14 +171,12 @@ const categories: Category[] = [
     key: 'other',
     label: '其他组件',
     labelEn: 'Others',
-    description: '水印、分隔面板、全局配置和无限滚动等补充能力。',
-    descriptionEn: 'Watermark, split panels, global config and infinite scroll utilities.',
+    description: '分割线与水印两个补充组件。',
+    descriptionEn: 'Divider and Watermark utilities.',
     component: OtherDemos,
     items: [
+      { id: 'Divider', zh: '分割线', en: 'Divider' },
       { id: 'Watermark', zh: '水印', en: 'Watermark' },
-      { id: 'Splitter', zh: '分隔面板', en: 'Splitter' },
-      { id: 'ConfigProvider', zh: '全局配置', en: 'Config Provider' },
-      { id: 'InfiniteScroll', zh: '无限滚动', en: 'Infinite Scroll' },
     ],
   },
 ]

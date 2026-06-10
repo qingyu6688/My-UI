@@ -17,6 +17,15 @@
   height: 1em;
 }
 
+.my-ui-line-icon,
+.my-ui-brand-icon,
+.my-ui-fill-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+}
+
 .my-icon.is-spin {
   animation: my-icon-spin 1s linear infinite;
 }

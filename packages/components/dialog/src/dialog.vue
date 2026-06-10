@@ -127,11 +127,12 @@ onBeforeUnmount(() => {
           :style="dialogStyle"
           role="dialog"
           aria-modal="true"
+          :aria-labelledby="title ? 'my-dialog-title' : undefined"
           tabindex="-1"
         >
           <header class="my-dialog__header">
             <slot name="header">
-              <span class="my-dialog__title">{{ title }}</span>
+              <span id="my-dialog-title" class="my-dialog__title">{{ title }}</span>
             </slot>
             <button
               v-if="showClose"

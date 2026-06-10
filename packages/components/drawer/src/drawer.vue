@@ -120,11 +120,12 @@ onBeforeUnmount(() => {
           :style="panelStyle"
           role="dialog"
           aria-modal="true"
+          :aria-labelledby="title ? 'my-drawer-title' : undefined"
           tabindex="-1"
         >
           <header class="my-drawer__header">
             <slot name="header">
-              <span class="my-drawer__title">{{ title }}</span>
+              <span id="my-drawer-title" class="my-drawer__title">{{ title }}</span>
             </slot>
             <button
               v-if="showClose"

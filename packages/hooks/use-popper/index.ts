@@ -7,6 +7,7 @@ import {
   type CSSProperties,
   type Ref,
 } from 'vue'
+import { useZIndex } from '../use-config'
 
 export const popperPlacements = [
   'top',
@@ -97,11 +98,14 @@ export function usePopper(options: UsePopperOptions = {}): UsePopperReturn {
   const popperRef = ref<HTMLElement | null>(null)
   const position = ref({ top: 0, left: 0 })
 
+  const { currentZIndex } = useZIndex()
+
   const popperStyle = computed<CSSProperties>(() => ({
     position: 'absolute',
     top: `${position.value.top}px`,
     left: `${position.value.left}px`,
-    zIndex: 2000,
+    // 继承 ConfigProvider 的 zIndex 基准（默认 2000），让全局调整能生效
+    zIndex: currentZIndex.value,
   }))
 
   function update(): void {

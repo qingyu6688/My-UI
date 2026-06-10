@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
 import { MyTree, type TreeKey, type TreeNodeData } from '../../tree'
+import { formContextKey } from '../../form/src/form'
 import type { TreeSelectEmits, TreeSelectProps } from './tree-select'
 
 defineOptions({
@@ -15,8 +17,11 @@ const props = withDefaults(defineProps<TreeSelectProps>(), {
   disabled: false,
   clearable: false,
   defaultExpandAll: false,
-  size: 'default',
+  size: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<TreeSelectEmits>()
 
@@ -68,7 +73,7 @@ function clear(): void {
 <template>
   <div
     class="my-tree-select"
-    :class="[`my-tree-select--${size}`, { 'is-disabled': disabled }]"
+    :class="[`my-tree-select--${actualSize}`, { 'is-disabled': disabled }]"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
   >

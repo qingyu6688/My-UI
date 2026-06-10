@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
+import { formContextKey } from '../../form/src/form'
 import type { TimeSelectEmits, TimeSelectProps } from './time-select'
 
 defineOptions({
@@ -15,8 +17,11 @@ const props = withDefaults(defineProps<TimeSelectProps>(), {
   placeholder: '选择时间',
   disabled: false,
   clearable: false,
-  size: 'default',
+  size: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<TimeSelectEmits>()
 
@@ -74,7 +79,7 @@ function clear(): void {
 <template>
   <div
     class="my-time-select"
-    :class="[`my-time-select--${size}`, { 'is-disabled': disabled }]"
+    :class="[`my-time-select--${actualSize}`, { 'is-disabled': disabled }]"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
   >

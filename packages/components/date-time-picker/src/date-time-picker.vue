@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
 import { formatDate, isSameDay } from '../../../utils/date'
 import { MyButton } from '../../button'
+import { formContextKey } from '../../form/src/form'
 import type { DateTimePickerEmits, DateTimePickerProps } from './date-time-picker'
 
 defineOptions({
@@ -14,8 +16,11 @@ const props = withDefaults(defineProps<DateTimePickerProps>(), {
   placeholder: '选择日期时间',
   disabled: false,
   clearable: false,
-  size: 'default',
+  size: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<DateTimePickerEmits>()
 
@@ -111,7 +116,7 @@ function isSelectedDay(date: Date): boolean {
 <template>
   <div
     class="my-date-time-picker"
-    :class="[`my-date-time-picker--${size}`, { 'is-disabled': disabled }]"
+    :class="[`my-date-time-picker--${actualSize}`, { 'is-disabled': disabled }]"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
   >

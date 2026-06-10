@@ -24,7 +24,9 @@ export default defineConfig({
       {
         text: '基础组件',
         items: [
+          { text: 'Border 边框', link: '/components/border' },
           { text: 'Button 按钮', link: '/components/button' },
+          { text: 'ButtonGroup 按钮组', link: '/components/button-group' },
           { text: 'Color 色彩', link: '/components/color' },
           { text: 'Container 容器', link: '/components/container' },
           { text: 'Divider 分割线', link: '/components/divider' },
@@ -45,13 +47,16 @@ export default defineConfig({
         text: '表单组件',
         items: [
           { text: 'Checkbox 多选框', link: '/components/checkbox' },
+          { text: 'ColorPickerPanel 颜色面板', link: '/components/color-picker-panel' },
+          { text: 'DatePickerPanel 日期面板', link: '/components/date-picker-panel' },
           { text: 'Form 表单', link: '/components/form' },
           { text: 'Input 输入框', link: '/components/input' },
           { text: 'InputNumber 数字输入框', link: '/components/input-number' },
           { text: 'Radio 单选框', link: '/components/radio' },
           { text: 'Segmented 分段控制器', link: '/components/segmented' },
           { text: 'Select 选择器', link: '/components/select' },
-          { text: 'Switch 开关', link: '/components/switch' }
+          { text: 'Switch 开关', link: '/components/switch' },
+          { text: 'VirtualizedSelect 虚拟化选择器', link: '/components/virtualized-select' }
         ],
       },
       {
@@ -69,7 +74,9 @@ export default defineConfig({
           { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
           { text: 'Table 表格', link: '/components/table' },
           { text: 'Tag 标签', link: '/components/tag' },
-          { text: 'Timeline 时间线', link: '/components/timeline' }
+          { text: 'Timeline 时间线', link: '/components/timeline' },
+          { text: 'VirtualizedTable 虚拟化表格', link: '/components/virtualized-table' },
+          { text: 'VirtualizedTree 虚拟化树', link: '/components/virtualized-tree' }
         ],
       },
       {
@@ -91,6 +98,7 @@ export default defineConfig({
           { text: 'Loading 加载', link: '/components/loading' },
           { text: 'Message 消息提示', link: '/components/message' },
           { text: 'MessageBox 消息弹出框', link: '/components/message-box' },
+          { text: 'Notification 通知', link: '/components/notification' },
           { text: 'Popconfirm 气泡确认框', link: '/components/popconfirm' },
           { text: 'Popover 弹出框', link: '/components/popover' },
           { text: 'Result 结果', link: '/components/result' },

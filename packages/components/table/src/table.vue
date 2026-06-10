@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, provide, ref, type CSSProperties } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
 import {
   tableContextKey,
   type TableColumnState,
@@ -17,7 +18,7 @@ defineOptions({
 const props = withDefaults(defineProps<TableProps>(), {
   stripe: false,
   border: false,
-  size: 'default',
+  size: undefined,
   emptyText: '暂无数据',
   loading: false,
   rowKey: undefined,
@@ -28,6 +29,7 @@ const props = withDefaults(defineProps<TableProps>(), {
 
 const emit = defineEmits<TableEmits>()
 
+const actualSize = useSize(props)
 const columns = ref<TableColumnState[]>([])
 
 function registerColumn(column: TableColumnState): void {
@@ -294,7 +296,7 @@ const tableStyle = computed<CSSProperties>(() => {
   <div
     class="my-table"
     :class="[
-      `my-table--${size}`,
+      `my-table--${actualSize}`,
       {
         'is-bordered': border,
         'is-striped': stripe,

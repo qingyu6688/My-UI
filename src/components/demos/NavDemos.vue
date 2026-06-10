@@ -14,8 +14,10 @@ import PageHeaderDemo from '../../demo/nav/PageHeaderDemo.vue'
 import PageHeaderSrc from '../../demo/nav/PageHeaderDemo.vue?raw'
 import AnchorDemo from '../../demo/nav/AnchorDemo.vue'
 import AnchorSrc from '../../demo/nav/AnchorDemo.vue?raw'
-import BacktopAffixDemo from '../../demo/nav/BacktopAffixDemo.vue'
-import BacktopAffixSrc from '../../demo/nav/BacktopAffixDemo.vue?raw'
+import BacktopDemo from '../../demo/nav/BacktopDemo.vue'
+import BacktopSrc from '../../demo/nav/BacktopDemo.vue?raw'
+import AffixDemo from '../../demo/nav/AffixDemo.vue'
+import AffixSrc from '../../demo/nav/AffixDemo.vue?raw'
 </script>
 
 <template>
@@ -77,11 +79,19 @@ import BacktopAffixSrc from '../../demo/nav/BacktopAffixDemo.vue?raw'
     </DemoBox>
 
     <DemoBox
-      name="Backtop / Affix" title="Backtop / Affix" title-en="Backtop / Affix"
-      description="回到顶部与固钉为全局滚动行为。" description-en="Global scroll-driven helpers."
-      :source="BacktopAffixSrc" path="src/demo/nav/BacktopAffixDemo.vue"
+      name="Affix" title="Affix 固钉" title-en="Affix"
+      description="将元素固定在容器内的滚动位置。" description-en="Fix an element to a position while scrolling."
+      :source="AffixSrc" path="src/demo/nav/AffixDemo.vue"
     >
-      <BacktopAffixDemo />
+      <AffixDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="Backtop" title="Backtop 回到顶部" title-en="Backtop"
+      description="滚动到一定距离后出现的回到顶部按钮。" description-en="Show a back-to-top button after scrolling."
+      :source="BacktopSrc" path="src/demo/nav/BacktopDemo.vue"
+    >
+      <BacktopDemo />
     </DemoBox>
   </div>
 </template>

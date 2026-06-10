@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
 import { formatDate, isSameDay, parseDate } from '../../../utils/date'
+import { formContextKey } from '../../form/src/form'
 import type { DatePickerEmits, DatePickerProps } from './date-picker'
 
 defineOptions({
@@ -14,8 +16,11 @@ const props = withDefaults(defineProps<DatePickerProps>(), {
   disabled: false,
   clearable: false,
   format: 'YYYY-MM-DD',
-  size: 'default',
+  size: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<DatePickerEmits>()
 
@@ -97,7 +102,7 @@ function isSelected(date: Date): boolean {
 <template>
   <div
     class="my-date-picker"
-    :class="[`my-date-picker--${size}`, { 'is-disabled': disabled }]"
+    :class="[`my-date-picker--${actualSize}`, { 'is-disabled': disabled }]"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
   >

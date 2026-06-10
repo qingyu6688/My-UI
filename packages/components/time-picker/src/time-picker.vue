@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { usePopper } from '../../../hooks/use-popper'
+import { useSize } from '../../../hooks/use-config'
 import { MyButton } from '../../button'
+import { formContextKey } from '../../form/src/form'
 import type { TimePickerEmits, TimePickerProps } from './time-picker'
 
 defineOptions({
@@ -14,8 +16,11 @@ const props = withDefaults(defineProps<TimePickerProps>(), {
   disabled: false,
   clearable: false,
   showSeconds: true,
-  size: 'default',
+  size: undefined,
 })
+
+const form = inject(formContextKey, undefined)
+const actualSize = useSize(props, computed(() => form?.size.value))
 
 const emit = defineEmits<TimePickerEmits>()
 
@@ -79,7 +84,7 @@ function clear(): void {
 <template>
   <div
     class="my-time-picker"
-    :class="[`my-time-picker--${size}`, { 'is-disabled': disabled }]"
+    :class="[`my-time-picker--${actualSize}`, { 'is-disabled': disabled }]"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
   >

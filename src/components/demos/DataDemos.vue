@@ -36,6 +36,12 @@ import CalendarDemo from '../../demo/data/CalendarDemo.vue'
 import CalendarSrc from '../../demo/data/CalendarDemo.vue?raw'
 import VirtualListDemo from '../../demo/data/VirtualListDemo.vue'
 import VirtualListSrc from '../../demo/data/VirtualListDemo.vue?raw'
+import VirtualizedTableDemo from '../../demo/data/VirtualizedTableDemo.vue'
+import VirtualizedTableSrc from '../../demo/data/VirtualizedTableDemo.vue?raw'
+import VirtualizedTreeDemo from '../../demo/data/VirtualizedTreeDemo.vue'
+import VirtualizedTreeSrc from '../../demo/data/VirtualizedTreeDemo.vue?raw'
+import InfiniteScrollDemo from '../../demo/data/InfiniteScrollDemo.vue'
+import InfiniteScrollSrc from '../../demo/data/InfiniteScrollDemo.vue?raw'
 </script>
 
 <template>
@@ -182,6 +188,30 @@ import VirtualListSrc from '../../demo/data/VirtualListDemo.vue?raw'
       :source="VirtualListSrc" path="src/demo/data/VirtualListDemo.vue"
     >
       <VirtualListDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="VirtualizedTable" title="VirtualizedTable 虚拟化表格" title-en="VirtualizedTable"
+      description="千行表格虚拟滚动。" description-en="Virtual scrolling for 1k+ rows."
+      :source="VirtualizedTableSrc" path="src/demo/data/VirtualizedTableDemo.vue"
+    >
+      <VirtualizedTableDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="VirtualizedTree" title="VirtualizedTree 虚拟化树形控件" title-en="VirtualizedTree"
+      description="深层级树仅渲染可视节点。" description-en="Render only visible nodes for deep trees."
+      :source="VirtualizedTreeSrc" path="src/demo/data/VirtualizedTreeDemo.vue"
+    >
+      <VirtualizedTreeDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="InfiniteScroll" title="InfiniteScroll 无限滚动" title-en="InfiniteScroll"
+      description="滚动到底部自动加载。" description-en="Auto-load on scroll to bottom."
+      :source="InfiniteScrollSrc" path="src/demo/data/InfiniteScrollDemo.vue"
+    >
+      <InfiniteScrollDemo />
     </DemoBox>
   </div>
 </template>

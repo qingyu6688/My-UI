@@ -12,6 +12,12 @@ import SwitchDemo from '../../demo/form/SwitchDemo.vue'
 import SwitchSrc from '../../demo/form/SwitchDemo.vue?raw'
 import SelectDemo from '../../demo/form/SelectDemo.vue'
 import SelectSrc from '../../demo/form/SelectDemo.vue?raw'
+import VirtualizedSelectDemo from '../../demo/form/VirtualizedSelectDemo.vue'
+import VirtualizedSelectSrc from '../../demo/form/VirtualizedSelectDemo.vue?raw'
+import ColorPickerPanelDemo from '../../demo/form/ColorPickerPanelDemo.vue'
+import ColorPickerPanelSrc from '../../demo/form/ColorPickerPanelDemo.vue?raw'
+import DatePickerPanelDemo from '../../demo/form/DatePickerPanelDemo.vue'
+import DatePickerPanelSrc from '../../demo/form/DatePickerPanelDemo.vue?raw'
 import SliderDemo from '../../demo/form/SliderDemo.vue'
 import SliderSrc from '../../demo/form/SliderDemo.vue?raw'
 import RateDemo from '../../demo/form/RateDemo.vue'
@@ -99,6 +105,15 @@ import FormSrc from '../../demo/form/FormDemo.vue?raw'
     </DemoBox>
 
     <DemoBox
+      name="VirtualizedSelect" title="VirtualizedSelect 虚拟化选择器" title-en="Virtualized Select"
+      description="千级数据下拉，虚拟滚动。"
+      description-en="Thousand-item dropdown with virtual scrolling."
+      :source="VirtualizedSelectSrc" path="src/demo/form/VirtualizedSelectDemo.vue"
+    >
+      <VirtualizedSelectDemo />
+    </DemoBox>
+
+    <DemoBox
       name="Slider" title="Slider 滑块" title-en="Slider"
       description="拖拽或键盘调整。" description-en="Drag or keyboard adjust."
       :source="SliderSrc" path="src/demo/form/SliderDemo.vue"
@@ -128,6 +143,24 @@ import FormSrc from '../../demo/form/FormDemo.vue?raw'
       :source="ColorPickerSrc" path="src/demo/form/ColorPickerDemo.vue"
     >
       <ColorPickerDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="ColorPickerPanel" title="ColorPickerPanel 颜色选择器面板" title-en="ColorPickerPanel"
+      description="独立面板形态，可嵌入主题编辑器等容器。"
+      description-en="Standalone panel suitable for embedded usage."
+      :source="ColorPickerPanelSrc" path="src/demo/form/ColorPickerPanelDemo.vue"
+    >
+      <ColorPickerPanelDemo />
+    </DemoBox>
+
+    <DemoBox
+      name="DatePickerPanel" title="DatePickerPanel 日期选择器面板" title-en="DatePickerPanel"
+      description="独立日期面板，可直接放在自定义弹层中。"
+      description-en="Standalone date panel for custom popovers."
+      :source="DatePickerPanelSrc" path="src/demo/form/DatePickerPanelDemo.vue"
+    >
+      <DatePickerPanelDemo />
     </DemoBox>
 
     <DemoBox

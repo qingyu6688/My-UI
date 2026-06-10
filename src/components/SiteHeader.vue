@@ -5,6 +5,7 @@ import { FlaskConical, Github, Menu, Moon, Search, Sun, X } from 'lucide-vue-nex
 import { navItems } from '../data/home'
 import { useSiteLocale } from '../composables/use-site-locale'
 import { useSiteThemeMode } from '../composables/use-site-theme-mode'
+import MyUILogo from './MyUILogo.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -53,7 +54,9 @@ function openGithub(): void {
   <header class="site-header">
     <div class="site-header__inner">
       <my-button text class="site-brand" :aria-label="brandLabel" @click="navigate('/')">
-        <span class="site-brand__mark">My</span>
+        <span class="site-brand__logo">
+          <MyUILogo :size="32" decorative />
+        </span>
         <span class="site-brand__name">My UI</span>
       </my-button>
 
@@ -94,12 +97,19 @@ function openGithub(): void {
           :aria-label="themeButtonLabel"
           :title="themeButtonLabel"
           :disabled="isThemeAnimating"
-          @click="toggleThemeMode"
+          @click="(e: MouseEvent) => toggleThemeMode(e)"
         >
           <span class="site-theme-switch__track">
-            <Sun class="site-theme-switch__icon site-theme-switch__icon--sun" />
-            <Moon class="site-theme-switch__icon site-theme-switch__icon--moon" />
-            <span class="site-theme-switch__thumb" />
+            <span class="site-theme-switch__star site-theme-switch__star--one" />
+            <span class="site-theme-switch__star site-theme-switch__star--two" />
+            <span class="site-theme-switch__star site-theme-switch__star--three" />
+            <span class="site-theme-switch__star site-theme-switch__star--four" />
+            <span class="site-theme-switch__cloud site-theme-switch__cloud--one" />
+            <span class="site-theme-switch__cloud site-theme-switch__cloud--two" />
+            <span class="site-theme-switch__thumb">
+              <Sun class="site-theme-switch__icon site-theme-switch__icon--sun" />
+              <Moon class="site-theme-switch__icon site-theme-switch__icon--moon" />
+            </span>
           </span>
         </button>
         <my-button

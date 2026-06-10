@@ -128,7 +128,13 @@
   cursor: not-allowed;
 }
 
-.my-button__loading {
+.my-button__loading,
+.my-button__loading-circle {
+  display: inline-flex;
+  align-items: center;
+}
+
+.my-button__loading-circle {
   width: 14px;
   height: 14px;
   border: 2px solid currentColor;
@@ -147,5 +153,123 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ===== 新变体 ===== */
+
+/* circle 圆形 */
+.my-button.is-circle {
+  width: 32px;
+  padding: 0;
+  border-radius: 50%;
+}
+.my-button.my-button--small.is-circle {
+  width: 28px;
+}
+.my-button.my-button--large.is-circle {
+  width: 40px;
+}
+
+/* dashed 虚线 */
+.my-button.is-dashed {
+  border-style: dashed;
+}
+
+/* link 链接型按钮 */
+.my-button.is-link {
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--my-color-primary-active);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.my-button.is-link:hover,
+.my-button.is-link:focus-visible {
+  color: var(--my-text-color-primary);
+  background: transparent;
+  outline: none;
+  text-decoration-color: currentColor;
+}
+.my-button.is-link.my-button--primary {
+  color: var(--my-color-primary-active);
+}
+.my-button.is-link.my-button--success {
+  color: var(--my-color-success);
+}
+.my-button.is-link.my-button--warning {
+  color: var(--my-color-warning);
+}
+.my-button.is-link.my-button--danger {
+  color: var(--my-color-danger);
+}
+.my-button.is-link.my-button--info {
+  color: var(--my-color-info);
+}
+
+/* text + bg：文字按钮带浅色背景 */
+.my-button.is-text.is-bg {
+  background: var(--my-fill-color-light);
+  padding: 0 14px;
+  height: 32px;
+  border-radius: var(--my-radius-base);
+}
+.my-button.is-text.is-bg:hover {
+  background: var(--my-color-primary-light-9);
+}
+
+/* color 自定义颜色（CSS Variables 已由组件注入） */
+.my-button.is-has-bg {
+  background: var(--my-button-bg-color);
+  border-color: var(--my-button-border-color);
+  color: var(--my-button-text-color);
+}
+.my-button.is-has-bg:hover,
+.my-button.is-has-bg:focus-visible {
+  background: var(--my-button-hover-bg-color);
+  border-color: var(--my-button-hover-border-color);
+  color: var(--my-button-hover-text-color);
+}
+.my-button.is-has-bg:active {
+  background: var(--my-button-active-bg-color);
+  border-color: var(--my-button-active-border-color);
+}
+
+/* ===== ButtonGroup ===== */
+.my-button-group {
+  display: inline-flex;
+  vertical-align: middle;
+}
+.my-button-group.is-vertical {
+  flex-direction: column;
+}
+
+/* 横向：内部按钮之间不再圆角，相邻边框合并 */
+.my-button-group:not(.is-vertical) .my-button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+.my-button-group:not(.is-vertical) .my-button:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* 纵向 */
+.my-button-group.is-vertical .my-button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: -1px;
+}
+.my-button-group.is-vertical .my-button:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* 组内 hover/focus 元素提升 z-index 避免被相邻按钮边框遮挡 */
+.my-button-group .my-button:hover,
+.my-button-group .my-button:focus-visible {
+  z-index: 1;
 }
 

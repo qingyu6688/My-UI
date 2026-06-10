@@ -1,8 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
-import MyUI from '../../../packages/my-ui/index'
+import MyUI from '../../../packages/my-ui/full'
 import ThemeEditor from './components/ThemeEditor.vue'
-import '../../../packages/theme-chalk/src/index.scss'
 
 const theme: Theme = {
   extends: DefaultTheme,

@@ -1,6 +1,31 @@
 {
   "name": "@qingyu6688/my-ui",
-  "version": "1.0.0",
+  "version": "1.0.15",
+  "description": "基于 Vue 3 + TypeScript 的中后台组件库，覆盖 100+ 常用组件，支持运行时主题切换、按需引入与全局配置。",
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue-components",
+    "component-library",
+    "ui",
+    "ui-library",
+    "ui-kit",
+    "typescript",
+    "admin",
+    "design-system",
+    "my-ui"
+  ],
+  "license": "MIT",
+  "author": "qingyu6688 <maorongkang@gmail.com>",
+  "homepage": "https://github.com/qingyu6688/My-UI#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qingyu6688/My-UI.git",
+    "directory": "packages/my-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/qingyu6688/My-UI/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -11,13 +36,37 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./theme-chalk/index.css": "./dist/theme-chalk/index.css"
+    "./full": {
+      "types": "./full.d.ts",
+      "import": "./dist/full.mjs",
+      "require": "./dist/full.cjs"
+    },
+    "./theme-chalk/index.css": "./dist/theme-chalk/index.css",
+    "./theme-chalk/*": "./dist/theme-chalk/*",
+    "./package.json": "./package.json"
   },
+  "files": [
+    "dist",
+    "index.d.ts",
+    "full.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": [
     "*.css",
-    "*.scss"
+    "*.scss",
+    "./full.ts",
+    "./dist/full.mjs",
+    "./dist/full.cjs"
   ],
   "peerDependencies": {
     "vue": "^3.5.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
